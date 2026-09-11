@@ -7,7 +7,9 @@
     <meta name="description" content="{{DESCRIPTION}}">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Marcos Carrascosa">
+    <meta name="theme-color" content="#1A1F2E">
     <link rel="canonical" href="https://www.marcoscarrascosa.com/{{SLUG}}.html">
+    <link rel="preload" as="image" href="https://www.marcoscarrascosa.com/{{OG_IMAGE}}" fetchpriority="high">
 
     <meta property="og:type" content="article">
     <meta property="og:locale" content="es_ES">
@@ -27,6 +29,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -34,9 +37,12 @@
 
     <style>
         .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+        .skip-link { position:absolute; left:-9999px; top:auto; z-index:10001; }
+        .skip-link:focus { left:1rem; top:1rem; padding:.75rem 1rem; background:#fff; color:#111; }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
     <header>
         <h1 class="logo-brand">
             <a href="index.html" style="text-decoration:none;color:inherit;">
@@ -44,26 +50,28 @@
                 <div class="logo-lower"><span>A</span><span>R</span><span>Q</span><span>U</span><span>I</span><span>T</span><span>E</span><span>C</span><span>T</span><span>U</span><span>R</span><span>A</span></div>
             </a>
         </h1>
-        <nav>
+        <nav aria-label="Navegación principal">
             <a href="proyectos.html">Proyectos</a>
             <a href="sobre-mi.html">Sobre mí</a>
             <a href="contacto.html">Contacto</a>
         </nav>
     </header>
 
-    <div class="container" style="padding-bottom:0;">
-        <h2 class="project-title">{{TITLE}}</h2>
-    </div>
-
-    <section class="container project-content-grid">
-        <aside class="project-sidebar">
-{{METADATA}}
-        </aside>
-
-        <div class="project-images">
-{{IMAGES}}
+    <main id="contenido">
+        <div class="container" style="padding-bottom:0;">
+            <h2 class="project-title">{{TITLE}}</h2>
         </div>
-    </section>
+
+        <section class="container project-content-grid" aria-label="Información y galería del proyecto">
+            <aside class="project-sidebar">
+{{METADATA}}
+            </aside>
+
+            <div class="project-images">
+{{IMAGES}}
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="footer-branding"><h2>Marcos Carrascosa</h2><span>Arquitectura</span></div>
@@ -95,10 +103,10 @@
         const images = [...document.querySelectorAll('.project-images img')];
         let currentIndex = 0;
 
-        const show = (index) => {
+        const show = index => {
             if (!images.length) return;
             currentIndex = (index + images.length) % images.length;
-            lightboxImg.src = images[currentIndex].src;
+            lightboxImg.src = images[currentIndex].currentSrc || images[currentIndex].src;
             lightboxImg.alt = images[currentIndex].alt || '';
             lightbox.style.display = 'flex';
             lightbox.setAttribute('aria-hidden', 'false');
@@ -129,9 +137,7 @@
         }, { passive:true });
 
         const btn = document.getElementById('btn-subir');
-        window.addEventListener('scroll', () => {
-            btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-        }, { passive:true });
+        window.addEventListener('scroll', () => { btn.style.display = window.scrollY > 300 ? 'block' : 'none'; }, { passive:true });
         btn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
     });
     </script>
