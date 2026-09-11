@@ -1,5 +1,6 @@
 {
   "buildCommand": "npm run build",
+  "outputDirectory": "public",
   "rewrites": [
     { "source": "/contacto", "destination": "/contacto.html" },
     { "source": "/proyectos", "destination": "/proyectos.html" },
