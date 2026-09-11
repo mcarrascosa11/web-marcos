@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "fp-tudela",
+    "title": "Propuesta nuevo edificio de formación profesional",
+    "cardTitle": "Propuesta edificio FP Tudela",
+    "location": "Tudela, Navarra",
+    "category": "educacional",
+    "cardImage": "img/FPTudela.webp",
+    "cardAlt": "Propuesta de nuevo edificio de formación profesional en Tudela",
+    "featured": true,
+    "generate": false
+  },
+  {
+    "slug": "rehabilitacion-cine-mapfre",
+    "title": "Rehabilitación de antiguo cine para oficinas para Mapfre",
+    "cardTitle": "Oficinas para Mapfre",
+    "location": "Cabanillas, Navarra",
+    "category": "rehabilitación",
+    "cardImage": "img/proyecto1.webp",
+    "cardAlt": "Rehabilitación de antiguo cine para oficinas Mapfre en Cabanillas",
+    "featured": true,
+    "generate": false
+  },
+  {
+    "slug": "remodelacion-calle-misericordia",
+    "title": "Remodelación del espacio urbano de las calles de Misericordia, Alberto Pelairea y Trinquete",
+    "cardTitle": "Remodelación de espacio urbano",
+    "location": "Tudela, Navarra",
+    "category": "espacio urbano",
+    "cardImage": "img/proyecto2.webp",
+    "cardAlt": "Remodelación urbana de las calles Misericordia, Alberto Pelairea y Trinquete en Tudela",
+    "featured": true,
+    "generate": false
+  },
+  {
+    "slug": "clinica-veterinaria-murchante",
+    "title": "Adecuación de local para clínica veterinaria",
+    "cardTitle": "Clínica veterinaria",
+    "location": "Murchante, Navarra",
+    "category": "local comercial",
+    "cardImage": "img/proyecto3.webp",
+    "cardAlt": "Adecuación de local para clínica veterinaria en Murchante",
+    "featured": true,
+    "generate": false
+  },
+  {
+    "slug": "iglesia-san-nicolas",
+    "title": "Rehabilitación de San Nicolás de Bari",
+    "cardTitle": "Rehabilitación de San Nicolás de Bari",
+    "location": "Tudela, Navarra",
+    "category": "rehabilitación",
+    "cardImage": "img/proyecto4.webp",
+    "cardAlt": "Rehabilitación de San Nicolás de Bari en Tudela",
+    "featured": true,
+    "generate": false
+  },
+  {
+    "slug": "clinica-fisioterapia-corpore",
+    "title": "Ampliación de clínica de fisioterapia Corpore",
+    "cardTitle": "Clínica fisioterapia",
+    "location": "Zaragoza, Aragón",
+    "category": "local comercial",
+    "cardImage": "img/ClinicaCorpore.webp",
+    "cardAlt": "Ampliación de clínica de fisioterapia Corpore en Zaragoza",
+    "featured": true,
+    "generate": false
+  },
+  {
+    "slug": "ampliacion-cifp-rio-ebro",
+    "title": "Ampliación de CIFP Rio Ebro",
+    "cardTitle": "Ampliación de CIFP Rio Ebro",
+    "location": "Miranda de Ebro, Burgos",
+    "category": "educacional",
+    "cardImage": "img/proyecto7.webp",
+    "cardAlt": "Ampliación de CIFP Rio Ebro",
+    "featured": false,
+    "generate": false
+  },
+  {
+    "slug": "rehabilitacion-pabellon-arguedas",
+    "title": "Rehabilitación de pabellón multiusos",
+    "cardTitle": "Rehabilitación pabellón multiusos",
+    "location": "Arguedas, Navarra",
+    "category": "rehabilitación",
+    "cardImage": "img/proyecto8.webp",
+    "cardAlt": "Rehabilitación de pabellón multiusos",
+    "featured": false,
+    "generate": false
+  }
+]
