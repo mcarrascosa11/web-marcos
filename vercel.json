@@ -13,20 +13,31 @@
     },
     {
       "source": "/img/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
     },
     {
       "source": "/proyectos/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400" }
-      ]
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+    },
+    {
+      "source": "/js/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
     }
+  ],
+  "redirects": [
+    { "source": "/fp-tudela.html", "destination": "/proyectos/fp-tudela/", "permanent": true },
+    { "source": "/rehabilitacion-cine-mapfre.html", "destination": "/proyectos/rehabilitacion-cine-mapfre/", "permanent": true },
+    { "source": "/remodelacion-calle-misericordia.html", "destination": "/proyectos/remodelacion-calle-misericordia/", "permanent": true },
+    { "source": "/clinica-veterinaria-murchante.html", "destination": "/proyectos/clinica-veterinaria-murchante/", "permanent": true },
+    { "source": "/iglesia-san-nicolas.html", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
+    { "source": "/clinica-fisioterapia-corpore.html", "destination": "/proyectos/clinica-fisioterapia-corpore/", "permanent": true },
+    { "source": "/ampliacion-cifp-rio-ebro.html", "destination": "/proyectos/ampliacion-cifp-rio-ebro/", "permanent": true },
+    { "source": "/rehabilitacion-pabellon-arguedas.html", "destination": "/proyectos/rehabilitacion-pabellon-arguedas/", "permanent": true }
   ],
   "rewrites": [
     { "source": "/contacto", "destination": "/contacto.html" },
     { "source": "/proyectos", "destination": "/proyectos.html" },
-    { "source": "/sobre-mi", "destination": "/sobre-mi.html" }
+    { "source": "/sobre-mi", "destination": "/sobre-mi.html" },
+    { "source": "/proyectos/:slug/", "destination": "/:slug.html" }
   ]
 }
