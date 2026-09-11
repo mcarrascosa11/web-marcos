@@ -1,13 +1,1 @@
-{
-  "name": "web-marcos",
-  "private": true,
-  "version": "1.1.0",
-  "scripts": {
-    "build": "node scripts/build-projects.mjs",
-    "new-project": "node scripts/new-project.mjs",
-    "optimize-images": "node scripts/optimize-images.mjs"
-  },
-  "dependencies": {
-    "sharp": "^0.35.4"
-  }
-}
+{"name":"web-marcos","private":true,"version":"1.4.0","scripts":{"build":"node scripts/build-projects.mjs && node scripts/build-home-final.mjs","new-project":"node scripts/new-project.mjs","optimize-images":"node scripts/optimize-images.mjs"},"dependencies":{"sharp":"^0.35.4"}}
