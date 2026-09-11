@@ -8,7 +8,9 @@
     "cardImage": "img/FPTudela.webp",
     "cardAlt": "Propuesta de nuevo edificio de formación profesional en Tudela",
     "featured": true,
-    "generate": false
+    "generate": false,
+    "seoTitle": "Edificio de Formación Profesional en Tudela | Marcos Carrascosa",
+    "seoDescription": "Propuesta de nuevo edificio de formación profesional en Tudela, Navarra. Proyecto de arquitectura de Marcos Carrascosa."
   },
   {
     "slug": "rehabilitacion-cine-mapfre",
@@ -19,7 +21,9 @@
     "cardImage": "img/proyecto1.webp",
     "cardAlt": "Rehabilitación de antiguo cine para oficinas Mapfre en Cabanillas",
     "featured": true,
-    "generate": false
+    "generate": false,
+    "seoTitle": "Rehabilitación de antiguo cine para oficinas en Cabanillas | Marcos Carrascosa",
+    "seoDescription": "Rehabilitación de un antiguo cine para oficinas de Mapfre en Cabanillas, Navarra. Proyecto de arquitectura y rehabilitación."
   },
   {
     "slug": "remodelacion-calle-misericordia",
@@ -30,7 +34,9 @@
     "cardImage": "img/proyecto2.webp",
     "cardAlt": "Remodelación urbana de las calles Misericordia, Alberto Pelairea y Trinquete en Tudela",
     "featured": true,
-    "generate": false
+    "generate": false,
+    "seoTitle": "Remodelación urbana de calles en Tudela | Marcos Carrascosa",
+    "seoDescription": "Proyecto de reurbanización de las calles Misericordia, Alberto Pelairea y Trinquete en Tudela, Navarra."
   },
   {
     "slug": "clinica-veterinaria-murchante",
@@ -41,7 +47,9 @@
     "cardImage": "img/proyecto3.webp",
     "cardAlt": "Adecuación de local para clínica veterinaria en Murchante",
     "featured": true,
-    "generate": false
+    "generate": false,
+    "seoTitle": "Clínica veterinaria en Murchante | Marcos Carrascosa",
+    "seoDescription": "Adecuación de un local para clínica veterinaria en Murchante, Navarra. Proyecto de arquitectura de Marcos Carrascosa."
   },
   {
     "slug": "iglesia-san-nicolas",
@@ -52,7 +60,9 @@
     "cardImage": "img/proyecto4.webp",
     "cardAlt": "Rehabilitación de San Nicolás de Bari en Tudela",
     "featured": true,
-    "generate": false
+    "generate": false,
+    "seoTitle": "Rehabilitación de la iglesia de San Nicolás en Tudela | Marcos Carrascosa",
+    "seoDescription": "Proyecto de rehabilitación de la iglesia de San Nicolás de Bari en Tudela, Navarra. Arquitectura y patrimonio."
   },
   {
     "slug": "clinica-fisioterapia-corpore",
@@ -63,18 +73,22 @@
     "cardImage": "img/ClinicaCorpore.webp",
     "cardAlt": "Ampliación de clínica de fisioterapia Corpore en Zaragoza",
     "featured": true,
-    "generate": false
+    "generate": false,
+    "seoTitle": "Ampliación de clínica de fisioterapia en Zaragoza | Marcos Carrascosa",
+    "seoDescription": "Ampliación de la clínica de fisioterapia Corpore en Zaragoza, Aragón. Proyecto de arquitectura para espacio sanitario."
   },
   {
     "slug": "ampliacion-cifp-rio-ebro",
-    "title": "Ampliación de CIFP Rio Ebro",
-    "cardTitle": "Ampliación de CIFP Rio Ebro",
+    "title": "Ampliación de CIFP Río Ebro",
+    "cardTitle": "Ampliación de CIFP Río Ebro",
     "location": "Miranda de Ebro, Burgos",
     "category": "educacional",
     "cardImage": "img/proyecto7.webp",
-    "cardAlt": "Ampliación de CIFP Rio Ebro",
+    "cardAlt": "Ampliación de CIFP Río Ebro en Miranda de Ebro",
     "featured": false,
-    "generate": false
+    "generate": false,
+    "seoTitle": "Ampliación del CIFP Río Ebro en Miranda de Ebro | Marcos Carrascosa",
+    "seoDescription": "Proyecto de ampliación del CIFP Río Ebro en Miranda de Ebro, Burgos. Arquitectura educativa de Marcos Carrascosa."
   },
   {
     "slug": "rehabilitacion-pabellon-arguedas",
@@ -83,8 +97,10 @@
     "location": "Arguedas, Navarra",
     "category": "rehabilitación",
     "cardImage": "img/proyecto8.webp",
-    "cardAlt": "Rehabilitación de pabellón multiusos",
+    "cardAlt": "Rehabilitación de pabellón multiusos en Arguedas",
     "featured": false,
-    "generate": false
+    "generate": false,
+    "seoTitle": "Rehabilitación de pabellón multiusos en Arguedas | Marcos Carrascosa",
+    "seoDescription": "Proyecto de rehabilitación de un pabellón multiusos en Arguedas, Navarra. Arquitectura y rehabilitación."
   }
 ]
