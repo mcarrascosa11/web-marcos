@@ -27,6 +27,19 @@
   "rewrites": [
     { "source": "/contacto", "destination": "/contacto.html" },
     { "source": "/proyectos", "destination": "/proyectos.html" },
-    { "source": "/sobre-mi", "destination": "/sobre-mi.html" }
+    { "source": "/sobre-mi", "destination": "/sobre-mi.html" },
+
+    { "source": "/proyectos/:slug/", "destination": "/:slug.html" },
+    { "source": "/proyectos/:slug/style.css", "destination": "/style.css" },
+    { "source": "/proyectos/:slug/img/:path*", "destination": "/img/:path*" },
+    { "source": "/proyectos/:slug/proyectos/:path*", "destination": "/proyectos/:path*" },
+    { "source": "/proyectos/:slug/js/:path*", "destination": "/js/:path*" },
+
+    { "source": "/proyectos/:slug/index.html", "destination": "/" },
+    { "source": "/proyectos/:slug/proyectos.html", "destination": "/proyectos.html" },
+    { "source": "/proyectos/:slug/sobre-mi.html", "destination": "/sobre-mi.html" },
+    { "source": "/proyectos/:slug/contacto.html", "destination": "/contacto.html" },
+    { "source": "/proyectos/:slug/avisolegal1.html", "destination": "/avisolegal1.html" },
+    { "source": "/proyectos/:slug/privacidad1.html", "destination": "/privacidad1.html" }
   ]
 }
