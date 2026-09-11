@@ -1,0 +1,617 @@
+/* =========================================
+   1. CONFIGURACIÓN BÁSICA (RESET)
+   ========================================= */
+:root {
+    --azul-corporativo: rgb(15, 76, 129);
+    --blanco: #ffffff;
+    --gris-texto: #333333;
+    --fuente: 'Mulish', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente);
+    font-weight: 300;
+    color: var(--gris-texto);
+    line-height: 1.6;
+    background-color: var(--blanco);
+}
+
+/* Evitar scroll horizontal (corte lateral) */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. CABECERA (ESTÁNDAR PARA PÁGINA DE PROYECTOS)
+   ========================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 100;
+    border-bottom: 1px solid #eee;
+}
+
+.logo-brand {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    width: max-content; 
+}
+
+.logo-upper {
+    font-size: 1.6rem;
+    display: flex;
+    gap: 0.4rem;
+    white-space: nowrap; 
+}
+
+.text-marcos { color: #000; font-weight: 300; }
+.text-carrascosa { color: var(--azul-corporativo); font-weight: 700; }
+
+.logo-lower {
+    display: flex;
+    justify-content: space-between; 
+    width: 98%; 
+    font-size: 0.67rem; 
+    color: #000;
+    margin-top: -7px;
+    margin-left: 2px;
+    text-transform: uppercase;
+}
+
+.header-transparent .text-marcos,
+.header-transparent .logo-lower {
+    color: #fff !important; 
+    text-shadow: none !important;
+}
+
+.header-transparent .text-carrascosa {
+    color: var(--azul-corporativo) !important;
+    text-shadow: none !important;
+}
+
+nav a {
+    text-decoration: none;
+    color: #666;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--azul-corporativo);
+}
+
+/* =========================================
+   3. CABECERA TRANSPARENTE (SOLO PARA PORTADA)
+   ========================================= */
+.header-transparent {
+    position: absolute;
+    width: 100%;
+    background: transparent !important;
+    border: none;
+    box-shadow: none;
+}
+
+.header-transparent .logo {
+    color: var(--azul-corporativo) !important;
+}
+
+.header-transparent nav a {
+    color: #fff !important;
+}
+
+/* =========================================
+   4. CARRUSEL / PORTADA (SLIDER)
+   ========================================= */
+.home-body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: none;
+}
+
+.slide img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(0.9); 
+}
+
+.slide-info {
+    padding: 3rem 4rem;
+    color: #fff;
+    z-index: 10;
+    width: 100%;
+}
+
+.slide-info h2 {
+    font-size: 1.1rem; 
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.slide-info p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    user-select: none;
+    z-index: 20;
+    opacity: 0;
+}
+
+.slider-container:hover .prev, 
+.slider-container:hover .next {
+    opacity: 1;
+}
+
+.next { right: 0; }
+.prev { left: 0; }
+
+.dots-container {
+    position: absolute;
+    bottom: 25px; 
+    width: 100%;
+    text-align: center; 
+    z-index: 20;
+}
+
+.dot {
+    cursor: pointer;
+    height: 8px;
+    width: 8px;
+    margin: 0 6px; 
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 50%; 
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    border: 1px solid transparent; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3); 
+}
+
+.active-dot, .dot:hover {
+    background-color: var(--azul-corporativo); 
+    transform: scale(1.3); 
+    opacity: 0.8;
+    border: 0px solid rgba(255, 255, 255, 0.5); 
+}
+
+/* =========================================
+   5. PÁGINA DE PROYECTOS (GRID - ÍNDICE)
+   ========================================= */
+.container {
+    padding: 4rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    color: var(--azul-corporativo);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+    border-bottom: 1px solid var(--azul-corporativo);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.filter-menu {
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 2rem; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    font-family: var(--fuente);
+    font-size: 1rem;
+    color: #999; 
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s;
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+    color: var(--azul-corporativo); 
+    font-weight: 700;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.proyecto {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.proyecto.animar-salida {
+    transform: scale(0); 
+    opacity: 0;          
+}
+
+.img-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 76, 129, 0.75); 
+    color: #fff; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.proyecto:hover .overlay { opacity: 1; }
+.proyecto:hover img { transform: scale(1.05); }
+
+.overlay h2 {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff; 
+    margin-bottom: 0.5rem;
+    text-shadow: none;
+    width: 60%;        
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center;
+}
+
+.overlay p { 
+    font-weight: 400;
+    color: #eee; 
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 0.5rem; 
+}
+
+/* =========================================
+   6. FOOTER 
+   ========================================= */
+footer {
+    background-color: #fff;
+    color: #333;
+    padding: 4rem 2rem 2rem 2rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+    margin-top: 4rem;
+}
+
+.footer-branding h2 {
+    font-size: 2rem;
+    font-weight: 700; 
+    color: var(--azul-corporativo); 
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-branding span {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #666;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.footer-divider {
+    width: 50px;
+    height: 1px;
+    background-color: #999;
+    margin: 2rem auto;
+}
+
+.footer-icons {
+    margin-bottom: 4rem;
+}
+
+.footer-icons a {
+    color: #000;
+    font-size: 1.5rem;
+    margin: 0 1rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-icons a:hover {
+    color: var(--azul-corporativo);
+}
+
+.footer-bottom {
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+    width: 100%;
+    display: grid; 
+    grid-template-columns: 1fr auto 1fr; 
+    align-items: center;
+    font-size: 0.7rem; 
+    color: #888;
+}
+
+.copyright { text-align: left; }
+.email-text { text-align: center; }
+.legal-links { text-align: right; }
+
+.footer-bottom a {
+    color: #888;
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: color 0.3s;
+}
+
+.footer-bottom a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* =========================================
+   7. ESTILOS DE FICHA DE PROYECTO
+   ========================================= */
+.project-header {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    max-width: 900px; 
+    text-align: left;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--azul-corporativo);
+    margin-bottom: 1.5rem;
+}
+
+.project-content-grid {
+    display: grid;
+    grid-template-columns: 250px 1fr; 
+    gap: 4rem; 
+    align-items: start; 
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+}
+
+.project-sidebar {
+    position: sticky;
+    top: 120px;
+}
+
+.meta-item {
+    margin-bottom: 1.5rem; 
+}
+
+.label {
+    display: block; 
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #999; 
+    margin-bottom: 0.3rem;
+}
+
+.value {
+    display: block;
+    font-size: 0.95rem;
+    color: #333; 
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.project-text {
+    max-width: 800px; 
+}
+
+.project-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #444;
+    text-align: justify; 
+}
+
+.photo-block {
+    margin-bottom: 2rem; 
+}
+
+.photo-block img {
+    width: 100%; 
+    height: auto;
+    display: block;
+}
+
+/* Visor de imágenes (Lightbox) */
+.project-images img { cursor: zoom-in; }
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    user-select: none;
+}
+
+.close-lightbox, .prev-lightbox, .next-lightbox {
+    position: absolute;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
+    padding: 15px;
+    transition: color 0.3s;
+}
+
+.close-lightbox:hover, .prev-lightbox:hover, .next-lightbox:hover {
+    color: var(--azul-corporativo);
+}
+
+.close-lightbox { top: 15px; right: 25px; }
+.prev-lightbox { left: 15px; }
+.next-lightbox { right: 15px; }
+
+
+/* =========================================
+   8. MEDIA QUERIES (AJUSTES PARA MÓVILES)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Cabecera */
+    header {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center;
+        gap: 15px;
+        padding: 20px 5%;
+    }
+    
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    nav a { margin-left: 0; }
+    .logo-upper { font-size: 1.4rem; }
+
+    /* Carrusel / Portada */
+    .home-body { height: 100vh; height: 100svh; }
+    .slider-container { height: 100vh; height: 100svh; }
+    .slide-info { padding: 2rem; padding-bottom: 100px; }
+    .dots-container { bottom: 30px; }
+    
+    /* Layout General */
+    .container { padding: 2rem 1.5rem; }
+    
+    /* Índice de proyectos */
+    .filter-menu { gap: 1rem; padding: 0 15px; justify-content: center; }
+    .grid { 
+        grid-template-columns: 1fr !important; 
+        padding: 0 15px; 
+        width: 100%; 
+        box-sizing: border-box; 
+    }
+    .proyecto .img-wrapper { width: 100%; }
+    .proyecto .img-wrapper img { width: 100%; height: auto; object-fit: cover; }
+    
+    /* Fichas de proyecto */
+    .project-content-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .project-sidebar { background: #f9f9f9; padding: 1.5rem; border-radius: 4px; position: static; }
+    
+    /* Reducción de textos en fichas para móvil */
+    .project-title { font-size: 1.5rem; }
+    .meta-item { font-size: 0.85rem; line-height: 1.4; }
+    .project-text p { font-size: 0.9rem; }
+
+    /* Lightbox en móvil */
+    .close-lightbox { top: 5px; right: 10px; font-size: 30px; }
+    .prev-lightbox { left: 0; font-size: 30px; }
+    .next-lightbox { right: 0; font-size: 30px; }
+
+    /* Footer */
+    .footer-bottom { display: flex; flex-direction: column; gap: 0.8rem; text-align: center; }
+    .copyright, .email-text, .legal-links { text-align: center; }
+    .legal-links a { margin: 0 0.5rem; }
+}
+
+#btn-subir {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    background-color: var(--azul-corporativo);
+    color: white;
+    cursor: pointer;
+    padding: 15px 18px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+#btn-subir:hover {
+    background-color: #0a355c;
+    transform: scale(1.1);
+}
