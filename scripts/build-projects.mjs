@@ -4,6 +4,7 @@ import path from 'node:path';
 const ROOT = process.cwd();
 const DATA_FILE = path.join(ROOT, 'data', 'proyectos.json');
 const TEMPLATE_FILE = path.join(ROOT, 'templates', 'proyecto.html');
+const PUBLIC_DIR = path.join(ROOT, 'public');
 const BASE_URL = 'https://www.marcoscarrascosa.com';
 
 const projects = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
@@ -17,7 +18,6 @@ const escapeHtml = (value = '') => String(value)
   .replace(/'/g, '&#039;');
 
 const escapeJsonLd = value => JSON.stringify(value).replace(/</g, '\\u003c');
-
 const requiredForGenerated = ['slug', 'title', 'location', 'category', 'description'];
 
 function imageFiles(project) {
@@ -47,10 +47,7 @@ function metadata(project) {
 }
 
 function renderImages(project, files) {
-  if (!files.length) {
-    throw new Error(`El proyecto "${project.slug}" no tiene imágenes. Añade imágenes a proyectos/${project.slug}/.`);
-  }
-
+  if (!files.length) throw new Error(`El proyecto "${project.slug}" no tiene imágenes. Añade imágenes a proyectos/${project.slug}/.`);
   return files.map((file, index) => {
     const alt = project.imageAlts?.[file] || (index === 0 ? project.cardAlt || project.title : `${project.title} — imagen ${index + 1}`);
     const src = `proyectos/${project.slug}/${file}`;
@@ -67,12 +64,11 @@ function renderProject(project) {
   const firstImage = files[0] ? `proyectos/${project.slug}/${files[0]}` : project.cardImage;
   if (!firstImage) throw new Error(`El proyecto "${project.slug}" no tiene imagen principal.`);
 
-  const description = project.description;
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: project.title,
-    description,
+    description: project.description,
     author: { '@type': 'Person', name: 'Marcos Carrascosa' },
     ...(project.datePublished ? { datePublished: project.datePublished } : {}),
     image: `${BASE_URL}/${firstImage}`,
@@ -81,7 +77,7 @@ function renderProject(project) {
 
   return template
     .replaceAll('{{TITLE}}', escapeHtml(project.title))
-    .replaceAll('{{DESCRIPTION}}', escapeHtml(description))
+    .replaceAll('{{DESCRIPTION}}', escapeHtml(project.description))
     .replaceAll('{{SLUG}}', escapeHtml(project.slug))
     .replaceAll('{{OG_IMAGE}}', escapeHtml(firstImage))
     .replaceAll('{{OG_ALT}}', escapeHtml(project.cardAlt || project.title))
@@ -101,9 +97,8 @@ function sliderMarkup() {
             </div>
         </a>`).join('\n');
 
-  const dots = featured.map((_, index) => `            <button class="dot" type="button" aria-label="Ir al proyecto ${index + 1}" onclick="currentSlide(${index + 1})"></button>`).join('\n');
-
-  return `${slides}\n\n        <button class="prev" type="button" aria-label="Proyecto anterior" onclick="plusSlides(-1)">&#10094;</button>\n        <button class="next" type="button" aria-label="Proyecto siguiente" onclick="plusSlides(1)">&#10095;</button>\n\n        <div class="dots-container">\n${dots}\n        </div>`;
+  const dots = featured.map((_, index) => `            <span class="dot" role="button" tabindex="0" aria-label="Ir al proyecto ${index + 1}" onclick="currentSlide(${index + 1})"></span>`).join('\n');
+  return `${slides}\n\n        <a class="prev" href="#" role="button" aria-label="Proyecto anterior" onclick="event.preventDefault(); plusSlides(-1)">&#10094;</a>\n        <a class="next" href="#" role="button" aria-label="Proyecto siguiente" onclick="event.preventDefault(); plusSlides(1)">&#10095;</a>\n\n        <div class="dots-container">\n${dots}\n        </div>`;
 }
 
 function cardsMarkup() {
@@ -126,7 +121,9 @@ function updateIndex() {
   if (html.includes(start) && html.includes(end)) {
     html = html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), block);
   } else {
+    const before = html;
     html = html.replace(/<div class="slider-container">[\s\S]*?\n    <\/div>\s*\n\s*<script>\s*\n\s*let slideIndex/, `<div class="slider-container">\n        ${block}\n    </div>\n\n<script>\n    let slideIndex`);
+    if (html === before) throw new Error('No se pudo localizar el carrusel de index.html para automatizarlo.');
   }
   fs.writeFileSync(file, html);
 }
@@ -141,34 +138,44 @@ function updateProjectsPage() {
   if (html.includes(start) && html.includes(end)) {
     html = html.replace(new RegExp(`${start}[\\s\\S]*?${end}`), block);
   } else {
+    const before = html;
     html = html.replace(/<div class="grid">[\s\S]*?<\/div>\s*<\/section>\s*<footer>/, `<div class="grid">\n            ${block}\n        </div>\n    </section>\n\n  <footer>`);
+    if (html === before) throw new Error('No se pudo localizar la rejilla de proyectos.html para automatizarla.');
   }
   fs.writeFileSync(file, html);
 }
 
 function updateSitemap() {
   const staticUrls = [
-    ['', '1.0'],
-    ['proyectos.html', '0.9'],
-    ['sobre-mi.html', '0.8'],
-    ['contacto.html', '0.8'],
-    ['avisolegal1.html', '0.3'],
-    ['privacidad1.html', '0.3']
+    ['', '1.0'], ['proyectos.html', '0.9'], ['sobre-mi.html', '0.8'], ['contacto.html', '0.8'],
+    ['avisolegal1.html', '0.3'], ['privacidad1.html', '0.3']
   ];
   const projectUrls = projects.map(project => [project.slug + '.html', '0.7']);
-  const urls = [...staticUrls, ...projectUrls];
-  const body = urls.map(([url, priority]) => `  <url>\n    <loc>${BASE_URL}/${url}</loc>\n    <priority>${priority}</priority>\n  </url>`).join('\n');
+  const body = [...staticUrls, ...projectUrls]
+    .map(([url, priority]) => `  <url>\n    <loc>${BASE_URL}/${url}</loc>\n    <priority>${priority}</priority>\n  </url>`)
+    .join('\n');
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`);
+}
+
+function syncPublic() {
+  fs.rmSync(PUBLIC_DIR, { recursive: true, force: true });
+  fs.mkdirSync(PUBLIC_DIR, { recursive: true });
+  const ignored = new Set(['.git', '.vercel', 'node_modules', 'public', 'data', 'scripts', 'templates']);
+  for (const entry of fs.readdirSync(ROOT, { withFileTypes: true })) {
+    if (ignored.has(entry.name) || entry.name.startsWith('.')) continue;
+    fs.cpSync(path.join(ROOT, entry.name), path.join(PUBLIC_DIR, entry.name), { recursive: true });
+  }
+  console.log('Salida Vercel preparada en public/.');
 }
 
 for (const project of projects) {
   if (!project.generate) continue;
-  const output = path.join(ROOT, `${project.slug}.html`);
-  fs.writeFileSync(output, renderProject(project));
+  fs.writeFileSync(path.join(ROOT, `${project.slug}.html`), renderProject(project));
   console.log(`Generado: ${project.slug}.html`);
 }
 
 updateIndex();
 updateProjectsPage();
 updateSitemap();
+syncPublic();
 console.log(`Catálogo procesado: ${projects.length} proyectos.`);
