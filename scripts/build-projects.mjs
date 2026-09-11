@@ -6,6 +6,7 @@ const DATA_FILE = path.join(ROOT, 'data', 'proyectos.json');
 const TEMPLATE_FILE = path.join(ROOT, 'templates', 'proyecto.html');
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const BASE_URL = 'https://www.marcoscarrascosa.com';
+const SITE_TITLE = 'Marcos Carrascosa Arquitectura';
 
 const projects = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
 const template = fs.readFileSync(TEMPLATE_FILE, 'utf8');
@@ -19,6 +20,20 @@ const escapeHtml = (value = '') => String(value)
 
 const escapeJsonLd = value => JSON.stringify(value).replace(/</g, '\\u003c');
 const requiredForGenerated = ['slug', 'title', 'location', 'category', 'description'];
+
+function validateCatalog() {
+  const seen = new Set();
+  for (const project of projects) {
+    for (const field of requiredForGenerated) {
+      if (project.generate && !project[field]) {
+        throw new Error(`Falta "${field}" en el proyecto "${project.slug || '(sin slug)'}".`);
+      }
+    }
+    if (!project.slug) continue;
+    if (seen.has(project.slug)) throw new Error(`Slug duplicado: "${project.slug}".`);
+    seen.add(project.slug);
+  }
+}
 
 function imageFiles(project) {
   if (Array.isArray(project.images) && project.images.length) return project.images;
@@ -51,28 +66,41 @@ function renderImages(project, files) {
   return files.map((file, index) => {
     const alt = project.imageAlts?.[file] || (index === 0 ? project.cardAlt || project.title : `${project.title} — imagen ${index + 1}`);
     const src = `proyectos/${project.slug}/${file}`;
-    return `            <div class="photo-block"><img src="${escapeHtml(src)}"${index > 0 ? ' loading="lazy"' : ''} alt="${escapeHtml(alt)}"></div>`;
+    const loading = index > 0 ? ' loading="lazy"' : '';
+    const priority = index === 0 ? ' fetchpriority="high"' : '';
+    return `            <div class="photo-block"><img src="${escapeHtml(src)}" decoding="async"${loading}${priority} alt="${escapeHtml(alt)}"></div>`;
   }).join('\n');
 }
 
 function renderProject(project) {
-  for (const field of requiredForGenerated) {
-    if (!project[field]) throw new Error(`Falta "${field}" en el proyecto "${project.slug}".`);
-  }
-
   const files = imageFiles(project);
   const firstImage = files[0] ? `proyectos/${project.slug}/${files[0]}` : project.cardImage;
   if (!firstImage) throw new Error(`El proyecto "${project.slug}" no tiene imagen principal.`);
 
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'CreativeWork',
+    name: project.title,
     headline: project.title,
     description: project.description,
-    author: { '@type': 'Person', name: 'Marcos Carrascosa' },
+    inLanguage: 'es',
+    creator: { '@type': 'Person', name: 'Marcos Carrascosa' },
     ...(project.datePublished ? { datePublished: project.datePublished } : {}),
-    image: `${BASE_URL}/${firstImage}`,
-    url: `${BASE_URL}/${project.slug}.html`
+    image: [`${BASE_URL}/${firstImage}`],
+    url: `${BASE_URL}/${project.slug}.html`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE_URL}/${project.slug}.html` },
+    about: { '@type': 'Thing', name: project.category },
+    locationCreated: { '@type': 'Place', name: project.location }
+  };
+
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Proyectos', item: `${BASE_URL}/proyectos.html` },
+      { '@type': 'ListItem', position: 3, name: project.title, item: `${BASE_URL}/${project.slug}.html` }
+    ]
   };
 
   return template
@@ -81,7 +109,7 @@ function renderProject(project) {
     .replaceAll('{{SLUG}}', escapeHtml(project.slug))
     .replaceAll('{{OG_IMAGE}}', escapeHtml(firstImage))
     .replaceAll('{{OG_ALT}}', escapeHtml(project.cardAlt || project.title))
-    .replace('{{SCHEMA}}', escapeJsonLd(schema))
+    .replace('{{SCHEMA}}', `${escapeJsonLd(schema)}\n    </script>\n    <script type="application/ld+json">${escapeJsonLd(breadcrumb)}`)
     .replace('{{METADATA}}', metadata(project))
     .replace('{{IMAGES}}', renderImages(project, files));
 }
@@ -90,22 +118,22 @@ function sliderMarkup() {
   const featured = projects.filter(project => project.featured);
   const slides = featured.map((project, index) => `
         <a href="${escapeHtml(project.slug)}.html" class="slide fade" aria-label="Ver proyecto: ${escapeHtml(project.title)}">
-            <img src="${escapeHtml(project.cardImage)}"${index === 0 ? '' : ' loading="lazy"'} alt="${escapeHtml(project.cardAlt || project.title)}">
+            <img src="${escapeHtml(project.cardImage)}" decoding="async"${index === 0 ? ' fetchpriority="high"' : ' loading="lazy"'} alt="${escapeHtml(project.cardAlt || project.title)}">
             <div class="slide-info">
                 <h2>${escapeHtml(project.title)}</h2>
                 <p>${escapeHtml(project.location)}</p>
             </div>
         </a>`).join('\n');
 
-  const dots = featured.map((_, index) => `            <span class="dot" role="button" tabindex="0" aria-label="Ir al proyecto ${index + 1}" onclick="currentSlide(${index + 1})"></span>`).join('\n');
-  return `${slides}\n\n        <a class="prev" href="#" role="button" aria-label="Proyecto anterior" onclick="event.preventDefault(); plusSlides(-1)">&#10094;</a>\n        <a class="next" href="#" role="button" aria-label="Proyecto siguiente" onclick="event.preventDefault(); plusSlides(1)">&#10095;</a>\n\n        <div class="dots-container">\n${dots}\n        </div>`;
+  const dots = featured.map((_, index) => `            <button class="dot" type="button" aria-label="Ir al proyecto ${index + 1}" onclick="currentSlide(${index + 1})"></button>`).join('\n');
+  return `${slides}\n\n        <button class="prev" type="button" aria-label="Proyecto anterior" onclick="plusSlides(-1)">&#10094;</button>\n        <button class="next" type="button" aria-label="Proyecto siguiente" onclick="plusSlides(1)">&#10095;</button>\n\n        <div class="dots-container">\n${dots}\n        </div>`;
 }
 
 function cardsMarkup() {
   return projects.map(project => `
             <a href="${escapeHtml(project.slug)}.html" class="proyecto" data-category="${escapeHtml(project.category)}">
                 <div class="img-wrapper">
-                    <img src="${escapeHtml(project.cardImage)}" loading="lazy" alt="${escapeHtml(project.cardAlt || project.title)}">
+                    <img src="${escapeHtml(project.cardImage)}" loading="lazy" decoding="async" alt="${escapeHtml(project.cardAlt || project.title)}">
                     <div class="overlay"><h2>${escapeHtml(project.cardTitle || project.title)}</h2></div>
                 </div>
             </a>`).join('\n');
@@ -147,13 +175,14 @@ function updateProjectsPage() {
 
 function updateSitemap() {
   const staticUrls = [
-    ['', '1.0'], ['proyectos.html', '0.9'], ['sobre-mi.html', '0.8'], ['contacto.html', '0.8'],
-    ['avisolegal1.html', '0.3'], ['privacidad1.html', '0.3']
+    ['', '1.0'],
+    ['proyectos.html', '0.9'],
+    ['sobre-mi.html', '0.8'],
+    ['contacto.html', '0.8']
   ];
   const projectUrls = projects.map(project => [project.slug + '.html', '0.7']);
-  const body = [...staticUrls, ...projectUrls]
-    .map(([url, priority]) => `  <url>\n    <loc>${BASE_URL}/${url}</loc>\n    <priority>${priority}</priority>\n  </url>`)
-    .join('\n');
+  const urls = [...staticUrls, ...projectUrls];
+  const body = urls.map(([url, priority]) => `  <url>\n    <loc>${BASE_URL}/${url}</loc>\n    <priority>${priority}</priority>\n  </url>`).join('\n');
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`);
 }
 
@@ -168,6 +197,7 @@ function syncPublic() {
   console.log('Salida Vercel preparada en public/.');
 }
 
+validateCatalog();
 for (const project of projects) {
   if (!project.generate) continue;
   fs.writeFileSync(path.join(ROOT, `${project.slug}.html`), renderProject(project));
@@ -178,4 +208,4 @@ updateIndex();
 updateProjectsPage();
 updateSitemap();
 syncPublic();
-console.log(`Catálogo procesado: ${projects.length} proyectos.`);
+console.log(`${SITE_TITLE}: catálogo procesado (${projects.length} proyectos).`);
