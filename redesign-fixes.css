@@ -1,0 +1,40 @@
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.redesign-home .logo-lower,.redesign-home .logo-lower span{border:0!important;border-bottom:0!important;box-shadow:none!important;text-decoration:none!important}
+.home-header{transition:transform .5s cubic-bezier(.2,.75,.2,1),opacity .3s ease!important}
+.home-header.nav-hidden{transform:translateY(-110%)!important;opacity:0!important;pointer-events:none!important}
+.hero-home{position:relative!important;overflow:hidden!important}
+.hero-home .slider-container{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+.hero-home .slide{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;opacity:0;z-index:0;display:flex!important;align-items:flex-end!important;transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform 1s cubic-bezier(.22,.61,.36,1)!important}
+.hero-home .slide img{width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+.hero-home .slide-info{position:absolute!important;left:50%!important;bottom:7vh!important;transform:translateX(-50%)!important;width:min(1180px,86vw)!important;text-align:center!important;padding:0!important;color:#fff!important;z-index:12!important}
+.hero-home .slide-info h2{margin:0 0 .45rem!important}
+.hero-home .slide-info p,.hero-home .slide-year{margin:.2rem 0 0!important}
+.hero-home .hero-transition-plane{position:absolute;left:-8vw;bottom:-18vh;width:120vw;height:55vh;background:#f2f0eb;transform:translateY(calc(100% - (var(--plane-progress,0) * 160%))) skewY(-7deg);transform-origin:center bottom;z-index:20;pointer-events:none;will-change:transform}
+.hero-home .scroll-cue{z-index:21!important}
+.rc-section{position:relative!important}
+.rc-section,.timeline-item,.timeline-media,.timeline-copy,.project-filter-bar{border-top:0!important;border-bottom:0!important}
+.timeline:before,.timeline-wrap:before{display:none!important}
+.timeline-item{transform:translateY(calc(var(--parallax,0px)))!important;transition:transform .15s linear!important}
+.timeline-item.is-hidden{display:none!important}
+.timeline-item[data-enter]{will-change:transform,opacity}
+.timeline-copy,.timeline-number,.timeline-copy h3,.timeline-copy p{text-align:center!important}
+.timeline-copy{display:flex;flex-direction:column;align-items:center}
+.timeline-link{margin-left:auto!important;margin-right:auto!important}
+.project-filter-bar{justify-content:center!important}
+.about-home{background:var(--bg)!important;color:var(--txt)!important}
+.about-copy .about-lead{color:#d9e8f3!important}
+.about-copy p{color:#b8bec5!important}
+.about-link{color:#9fc3dd!important;border-color:rgba(159,195,221,.35)!important}
+.contact-home{background:var(--bg)!important;color:var(--txt)!important}
+.contact-home h2 span{color:var(--azul2)!important}
+.contact-links a{color:#fff!important;border-bottom:1px solid rgba(255,255,255,.22)!important}
+.redesign-footer{background:var(--bg)!important}
+.project-page-redesign .project-hero{border-bottom:0!important}
+.project-page-redesign .project-hero h1{text-align:center!important;max-width:1300px;margin-left:auto!important;margin-right:auto!important}
+.project-page-redesign .project-hero .eyebrow{text-align:center!important}
+.project-page-redesign .project-facts{justify-content:center!important}
+.project-page-redesign .project-content-grid,.project-page-redesign .project-description{text-align:center!important}
+.project-page-redesign .project-description{margin-left:auto!important;margin-right:auto!important}
+.project-page-redesign .project-images .photo-block{border:0!important}
+@media(max-width:850px){.hero-home .slide-info{bottom:10vh!important;width:88vw!important}.hero-home .hero-transition-plane{height:48vh}.timeline-item{transform:none!important}.timeline-copy{text-align:center!important}}
+@media(prefers-reduced-motion:reduce){.home-header,.hero-home .slide,.hero-home .hero-transition-plane,.timeline-item{transition:none!important;transform:none!important}}
