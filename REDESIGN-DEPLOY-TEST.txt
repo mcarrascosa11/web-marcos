@@ -1,0 +1,2 @@
+PREVIEW TEST — redesign-clean-2026-09-12
+Si este archivo aparece en el deployment, GitHub → Vercel está sincronizado correctamente.
