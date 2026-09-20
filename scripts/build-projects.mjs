@@ -16,6 +16,8 @@ const esc = (v = '') => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').r
 const jsonLd = value => JSON.stringify(value).replace(/</g, '\\u003c');
 const projectUrl = slug => `${BASE_URL}${PROJECT_PREFIX}${slug}/`;
 const projectPath = slug => `${PROJECT_PREFIX}${slug}/`;
+const PROJECT_SLUGS = new Set(PROJECTS.map(p => p.slug));
+const rewriteProjectHref = (match, slug) => PROJECT_SLUGS.has(slug) ? `href="${projectPath(slug)}"` : match;
 
 function validate() {
   const seen = new Set();
@@ -113,6 +115,7 @@ function patchLegacyPages() {
     const title = p.seoTitle || `${p.title} | ${CONFIG.site.personName}`;
     const description = p.seoDescription || p.description || p.title;
     html = patchPageMeta(html, title, description, projectUrl(p.slug), `${BASE_URL}/${p.cardImage}`);
+    html = html.replaceAll(`${BASE_URL}/${p.slug}.html`, projectUrl(p.slug));
     html = html.replaceAll('CIPF Rio Ebro', 'CIFP Río Ebro').replaceAll('Ampliación de clinica', 'Ampliación de clínica').replaceAll('Adecuación de local para clinica', 'Adecuación de local para clínica');
     fs.writeFileSync(target, html);
   }
@@ -139,6 +142,7 @@ function patchProjectsPage() {
   let html = fs.readFileSync(file, 'utf8');
   html = patchPageMeta(html, 'Proyectos de arquitectura | Marcos Carrascosa', 'Portfolio de arquitectura en Zaragoza y Navarra: rehabilitación, patrimonio, vivienda, locales y espacios públicos.', `${BASE_URL}/proyectos`, `${BASE_URL}/img/proyecto1.webp`);
   html = html.replace(/href="([a-z0-9-]+)\.html"/g, (_, slug) => `href="${projectPath(slug)}"`);
+  html = html.replaceAll(`${BASE_URL}/proyectos.html`, `${BASE_URL}/proyectos`);
   html = html.replaceAll('clinica veterinaria', 'clínica veterinaria').replaceAll('Clinica fisioterapia', 'Clínica fisioterapia').replaceAll('CIPF Rio Ebro', 'CIFP Río Ebro');
   fs.writeFileSync(file, html);
 }
@@ -151,7 +155,9 @@ function patchStaticSeo() {
   for (const [name, title, desc, url] of pages) {
     const file = path.join(PUBLIC, name);
     if (!fs.existsSync(file)) continue;
-    fs.writeFileSync(file, patchPageMeta(fs.readFileSync(file, 'utf8'), title, desc, url, `${BASE_URL}/img/proyecto1.webp`));
+    let html = patchPageMeta(fs.readFileSync(file, 'utf8'), title, desc, url, `${BASE_URL}/img/proyecto1.webp`);
+    html = html.replaceAll(`${BASE_URL}/${name}`, url);
+    fs.writeFileSync(file, html);
   }
 }
 
