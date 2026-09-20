@@ -25,14 +25,31 @@
     }
   ],
   "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/proyectos.html", "destination": "/proyectos", "permanent": true },
+    { "source": "/sobre-mi.html", "destination": "/sobre-mi", "permanent": true },
+    { "source": "/Sobre-mi.html", "destination": "/sobre-mi", "permanent": true },
+    { "source": "/contacto.html", "destination": "/contacto", "permanent": true },
+
     { "source": "/fp-tudela.html", "destination": "/proyectos/fp-tudela/", "permanent": true },
     { "source": "/rehabilitacion-cine-mapfre.html", "destination": "/proyectos/rehabilitacion-cine-mapfre/", "permanent": true },
     { "source": "/remodelacion-calle-misericordia.html", "destination": "/proyectos/remodelacion-calle-misericordia/", "permanent": true },
     { "source": "/clinica-veterinaria-murchante.html", "destination": "/proyectos/clinica-veterinaria-murchante/", "permanent": true },
     { "source": "/iglesia-san-nicolas.html", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
+    { "source": "/Iglesia San Nicolas.html", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
     { "source": "/clinica-fisioterapia-corpore.html", "destination": "/proyectos/clinica-fisioterapia-corpore/", "permanent": true },
     { "source": "/ampliacion-cifp-rio-ebro.html", "destination": "/proyectos/ampliacion-cifp-rio-ebro/", "permanent": true },
-    { "source": "/rehabilitacion-pabellon-arguedas.html", "destination": "/proyectos/rehabilitacion-pabellon-arguedas/", "permanent": true }
+    { "source": "/rehabilitacion-pabellon-arguedas.html", "destination": "/proyectos/rehabilitacion-pabellon-arguedas/", "permanent": true },
+
+    { "source": "/proyectos/profesionales/remodelacion-y-renovacion-calles", "destination": "/proyectos/remodelacion-calle-misericordia/", "permanent": true },
+    { "source": "/proyectos/profesionales/rehabilitacion-san-nicolas-de-bari", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
+    { "source": "/proyectos/profesionales", "destination": "/proyectos", "permanent": true },
+    { "source": "/proyectos/profesionales/:path*", "destination": "/proyectos", "permanent": true },
+    { "source": "/proyectos/academicos", "destination": "/proyectos", "permanent": true },
+    { "source": "/proyectos/academicos/:path*", "destination": "/proyectos", "permanent": true },
+    { "source": "/poligono-industria-de-cogullada/:path*", "destination": "/proyectos", "permanent": true },
+    { "source": "/declaracion-de-accesibilidad", "destination": "/", "permanent": true },
+    { "source": "/D/product/:path*", "destination": "/proyectos", "permanent": true }
   ],
   "rewrites": [
     { "source": "/contacto", "destination": "/contacto.html" },
