@@ -125,7 +125,7 @@ function patchIndex() {
   const file = path.join(PUBLIC, 'index.html');
   let html = fs.readFileSync(file, 'utf8');
   html = patchPageMeta(html, CONFIG.site.defaultTitle, CONFIG.site.defaultDescription, `${BASE_URL}/`, `${BASE_URL}/img/proyecto1.webp`);
-  html = html.replace(/href="([a-z0-9-]+)\.html"/g, (_, slug) => `href="${projectPath(slug)}"`);
+  html = html.replace(/href="([a-z0-9-]+)\.html"/g, rewriteProjectHref);
   html = html.replace(/<nav(?![^>]*aria-label)/i, '<nav aria-label="Navegación principal"');
   html = html.replace(/<div class="slider-container">[\s\S]*?<\/div>\s*\n\s*<script>/i, match => {
     const close = match.lastIndexOf('<script>');
@@ -141,7 +141,7 @@ function patchProjectsPage() {
   const file = path.join(PUBLIC, 'proyectos.html');
   let html = fs.readFileSync(file, 'utf8');
   html = patchPageMeta(html, 'Proyectos de arquitectura | Marcos Carrascosa', 'Portfolio de arquitectura en Zaragoza y Navarra: rehabilitación, patrimonio, vivienda, locales y espacios públicos.', `${BASE_URL}/proyectos`, `${BASE_URL}/img/proyecto1.webp`);
-  html = html.replace(/href="([a-z0-9-]+)\.html"/g, (_, slug) => `href="${projectPath(slug)}"`);
+  html = html.replace(/href="([a-z0-9-]+)\.html"/g, rewriteProjectHref);
   html = html.replaceAll(`${BASE_URL}/proyectos.html`, `${BASE_URL}/proyectos`);
   html = html.replaceAll('clinica veterinaria', 'clínica veterinaria').replaceAll('Clinica fisioterapia', 'Clínica fisioterapia').replaceAll('CIPF Rio Ebro', 'CIFP Río Ebro');
   fs.writeFileSync(file, html);
