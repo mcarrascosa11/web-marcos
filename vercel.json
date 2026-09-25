@@ -41,6 +41,7 @@
     { "source": "/clinica-fisioterapia-corpore.html", "destination": "/proyectos/clinica-fisioterapia-corpore/", "permanent": true },
     { "source": "/ampliacion-cifp-rio-ebro.html", "destination": "/proyectos/ampliacion-cifp-rio-ebro/", "permanent": true },
     { "source": "/rehabilitacion-pabellon-arguedas.html", "destination": "/proyectos/rehabilitacion-pabellon-arguedas/", "permanent": true },
+    { "source": "/rehabilitacion-vestuarios-sdr-arenas.html", "destination": "/proyectos/rehabilitacion-vestuarios-sdr-arenas/", "permanent": true },
 
     { "source": "/proyectos/profesionales/remodelacion-y-renovacion-calles", "destination": "/proyectos/remodelacion-calle-misericordia/", "permanent": true },
     { "source": "/proyectos/profesionales/rehabilitacion-san-nicolas-de-bari", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
