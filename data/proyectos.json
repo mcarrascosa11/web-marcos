@@ -1,5 +1,28 @@
 [
   {
+    "slug": "rehabilitacion-vestuarios-sdr-arenas",
+    "title": "Rehabilitación de vestuarios para la S.D.R. Arenas",
+    "cardTitle": "Vestuarios S.D.R. Arenas",
+    "location": "Tudela, Navarra",
+    "category": "rehabilitación",
+    "description": "Rehabilitación de los vestuarios de la S.D.R. Arenas en Tudela, Navarra. Proyecto finalizado de 619 m².",
+    "date": "Septiembre, 2026",
+    "status": "Finalizada",
+    "area": "619 m²",
+    "client": "S.D.R. Arenas",
+    "budget": "990.000 €",
+    "contractor": "Construcciones ECAY",
+    "team": "Alberto Adell Lázaro, Arturo Llorente y Marcos Carrascosa (arquitectos); Raúl Echarren (arquitecto técnico); Zardoya y Huete Ingeniería S.L. (ingeniería)",
+    "type": "Rehabilitación",
+    "photography": "Marcos Carrascosa",
+    "cardImage": "proyectos/sdr-arenas/fdoarenas-6.webp",
+    "cardAlt": "Rehabilitación de vestuarios de la S.D.R. Arenas en Tudela",
+    "featured": true,
+    "generate": true,
+    "seoTitle": "Rehabilitación de vestuarios S.D.R. Arenas en Tudela | Marcos Carrascosa",
+    "seoDescription": "Rehabilitación de los vestuarios de la S.D.R. Arenas en Tudela, Navarra. Proyecto finalizado de 619 m²."
+  },
+  {
     "slug": "fp-tudela",
     "title": "Propuesta nuevo edificio de formación profesional",
     "cardTitle": "Propuesta edificio FP Tudela",
@@ -72,7 +95,7 @@
     "category": "local comercial",
     "cardImage": "img/ClinicaCorpore.webp",
     "cardAlt": "Ampliación de clínica de fisioterapia Corpore en Zaragoza",
-    "featured": true,
+    "featured": false,
     "generate": false,
     "seoTitle": "Ampliación de clínica de fisioterapia en Zaragoza | Marcos Carrascosa",
     "seoDescription": "Ampliación de la clínica de fisioterapia Corpore en Zaragoza, Aragón. Proyecto de arquitectura para espacio sanitario."
