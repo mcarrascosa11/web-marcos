@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#0b0f11">
+<title>HYROX · Caña 04/10/2026</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0f11;--panel:#151c1e;--panel2:#1d2729;--line:#334145;--txt:#f4f7f5;--muted:#9fb0aa;--lime:#baf36c;--orange:#ffb768;--red:#ff817a;--blue:#74c7ff;--green:#263b28;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);-webkit-tap-highlight-color:transparent}main{max-width:760px;margin:auto;padding:16px 13px calc(34px + env(safe-area-inset-bottom))}.eyebrow{font-size:.76rem;color:var(--lime);font-weight:900;letter-spacing:.16em}.top h1{margin:6px 0 5px;font-size:clamp(1.85rem,7vw,2.6rem);letter-spacing:-.04em}.top p{margin:0;color:var(--muted);line-height:1.4;font-size:.92rem}.panel{margin-top:13px;padding:15px;background:var(--panel);border:1px solid var(--line);border-radius:20px}.panel-title{margin:0 0 12px;color:var(--muted);font-size:.74rem;letter-spacing:.13em;text-transform:uppercase}.session-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mini{padding:9px 7px;border:1px solid var(--line);border-radius:12px;background:#0f1618;text-align:center}.mini span{display:block;color:var(--muted);font-size:.68rem}.mini strong{font-size:.98rem}.phase-strip{display:flex;gap:5px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:none}.phase-strip::-webkit-scrollbar{display:none}.chip{flex:0 0 auto;min-width:52px;border:1px solid var(--line);background:#0e1517;border-radius:9px;padding:6px 7px;text-align:center;font-size:.69rem;color:var(--muted)}.chip b{display:block;color:var(--txt);font-size:.75rem}.chip.active{border-color:var(--lime);background:#293a24}.chip.active b{color:var(--lime)}.chip.done{opacity:.45}.chip.rest.active{border-color:var(--orange);background:#3b3024}.chip.fast.active{border-color:var(--red);background:#3b2524}.chip.warm.active,.chip.cool.active{border-color:var(--blue);background:#21333e}.watch{text-align:center;padding:20px 12px}.round{font-size:.75rem;color:var(--muted);letter-spacing:.12em;font-weight:800;min-height:18px}.current{font-weight:900;font-size:clamp(1.35rem,6vw,2.2rem);margin:5px 0}.target{display:inline-block;padding:7px 10px;border:1px solid #55724a;background:#263526;border-radius:10px;color:var(--lime);font-weight:800}.target.fast{color:#ffd1ce;border-color:#7c4a47;background:#382525}.target.rest{color:#ffe0b9;border-color:#73543b;background:#362b22}.clock{font-size:clamp(4.5rem,19vw,8.5rem);font-weight:900;line-height:1;letter-spacing:-.08em;font-variant-numeric:tabular-nums;margin:18px 0 7px}.clock small{font-size:.35em;opacity:.6}.progress{height:8px;background:#0d1416;border:1px solid var(--line);border-radius:99px;overflow:hidden;margin:10px 0 13px}.bar{height:100%;width:0;background:var(--lime);transition:width .15s linear}.totals{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 13px}.metric{background:#0e1517;border:1px solid var(--line);border-radius:12px;padding:9px}.metric span{display:block;color:var(--muted);font-size:.7rem}.metric strong{font-variant-numeric:tabular-nums;font-size:1.22rem}.big{width:100%;min-height:82px;border:0;border-radius:16px;background:var(--lime);color:#15200f;font:900 clamp(1.05rem,5vw,1.4rem)/1.2 inherit;cursor:pointer;touch-action:manipulation}.big.pause{background:var(--orange);color:#25180a}.big.done{background:#263529;color:var(--lime);border:1px solid #526f49}.buttons{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:10px}.small{min-height:44px;padding:9px 11px;border-radius:11px;background:var(--panel2);color:var(--txt);border:1px solid var(--line);font-weight:750}.small.danger{color:#ffb3ae}.small:disabled{opacity:.35}.wake{display:flex;gap:8px;align-items:center;margin-top:11px;color:var(--muted);font-size:.82rem}.wake input{accent-color:var(--lime);width:18px;height:18px}.hint{color:var(--muted);font-size:.79rem;line-height:1.45;margin:9px 0 0}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}th,td{padding:9px 6px;border-bottom:1px solid #2a373a;text-align:left;white-space:nowrap;font-size:.82rem}th{font-size:.69rem;color:var(--muted);letter-spacing:.04em}input.dist{width:76px;min-height:35px;border-radius:8px;border:1px solid #425155;background:#0b1214;color:var(--txt);padding:6px;font:inherit}.pace{color:var(--lime);font-weight:800}.summary{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}.summary div{background:#0e1517;border:1px solid var(--line);padding:10px;border-radius:11px}.summary span{display:block;color:var(--muted);font-size:.7rem}.summary strong{font-size:1.05rem}.field{display:block;color:var(--muted);font-size:.78rem;margin-top:9px}.field input,.field textarea{width:100%;margin-top:5px;border:1px solid #435155;background:#0c1315;color:var(--txt);border-radius:10px;padding:10px;font:inherit}.field textarea{min-height:76px;resize:vertical}.export{display:grid;grid-template-columns:1fr 1fr;gap:8px}.export button{min-height:48px;border-radius:11px;border:1px solid var(--line);background:var(--panel2);color:var(--txt);font-weight:800}.report{white-space:pre-wrap;overflow-wrap:anywhere;max-height:300px;overflow:auto;background:#0b1214;border:1px solid var(--line);border-radius:11px;padding:10px;font: .78rem/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;color:#d5e2dc;margin-top:10px}.notice{padding:10px;border-radius:11px;background:#263827;border:1px solid #506d49;color:var(--lime);font-weight:800;margin-bottom:10px}.gpsline{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:10px}.gpspill{padding:7px 9px;border:1px solid var(--line);border-radius:999px;background:#0e1517;color:var(--muted);font-size:.76rem}.gpspill.good{color:var(--lime);border-color:#55724a}.gpspill.warn{color:var(--orange);border-color:#73543b}.auto{font-size:.65rem;color:var(--muted);display:block;margin-top:3px}[hidden]{display:none!important}@media(max-width:390px){main{padding-left:9px;padding-right:9px}.panel{padding:12px}.clock{font-size:20vw}.session-grid{gap:5px}.mini{padding:8px 4px}.export{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main>
+<section class="top">
+<div class="eyebrow">HYROX · DOMINGO 04/10/2026 · CAÑA</div>
+<h1>4 × (4' + 2')</h1>
+<p>Bloque específico para acercar el 4:40/km a ritmo sostenible: 4' controlados + 2' fuertes, con 2' suaves. Final rápido opcional incluido.</p>
+</section>
+
+<section class="panel">
+<h2 class="panel-title">Plan de hoy</h2>
+<div class="session-grid">
+<div class="mini"><span>Calentamiento</span><strong>15'</strong></div>
+<div class="mini"><span>Bloque</span><strong>4 vueltas</strong></div>
+<div class="mini"><span>Trabajo calidad</span><strong>25'30"</strong></div>
+<div class="mini"><span>Total aprox.</span><strong>64'</strong></div>
+</div>
+<p class="hint"><b>Vuelta:</b> 4' a 4:45–4:50/km → 2' a 4:20–4:30/km → 2' trote suave. Después: 3 × 30" a 4:00–4:10/km con 1' suave. Enfriamiento 10'. Si al acabar la 4.ª vuelta vas justo, pulsa «Saltar finisher».</p>
+<div class="phase-strip" id="strip"></div>
+</section>
+
+<section class="panel watch">
+<div class="round" id="round">LISTO</div>
+<div class="current" id="phaseName">Calentamiento</div>
+<div class="target" id="target">Suave · Z2</div>
+<div class="clock" id="clock">15:00<small>.0</small></div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="totals">
+<div class="metric"><span>CRONO TOTAL</span><strong id="totalClock">00:00.0</strong></div>
+<div class="metric"><span>SIGUIENTE</span><strong id="next">Prog 1 · 20"</strong></div>
+</div>
+<div class="totals">
+<div class="metric"><span>METROS FASE · GPS</span><strong id="phaseMeters">0 m</strong></div>
+<div class="metric"><span>DISTANCIA TOTAL · GPS</span><strong id="totalMeters">0,00 km</strong></div>
+</div>
+<button class="big" id="mainBtn">▶ EMPEZAR ENTRENAMIENTO</button>
+<div class="buttons">
+<button class="small" id="gpsBtn">⌖ Activar GPS</button>
+<button class="small" id="nextBtn" disabled>⏭ Terminar fase ahora</button>
+<button class="small" id="skipFinisher" disabled>Saltar finisher</button>
+<button class="small" id="undoBtn" disabled>↶ Deshacer</button>
+<button class="small danger" id="resetBtn">Reiniciar</button>
+</div>
+<div class="gpsline"><span class="gpspill" id="gpsState">GPS desactivado</span><span class="gpspill" id="gpsAcc">Precisión —</span></div>
+<label class="wake"><input type="checkbox" id="wake"> Mantener pantalla encendida si el navegador lo permite</label>
+<p class="hint" id="status">Activa el GPS antes de empezar. El navegador pedirá permiso de ubicación. Solo se guardan <b>metros por fase</b>, no coordenadas. Para medir mejor, activa «mantener pantalla encendida».</p>
+</section>
+
+<section class="panel">
+<h2 class="panel-title">Resultados</h2>
+<p class="hint" style="margin-top:-4px">Con GPS activo, el HTML suma automáticamente los metros de <b>cada fase</b> (4', 2', recuperaciones, progresivos…). Puedes corregir manualmente cualquier distancia si Mi Fitness/Adidas te da un valor mejor.</p>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>Fase</th><th>Tiempo</th><th>Objetivo</th><th>Dist. m</th><th>Ritmo</th></tr></thead>
+<tbody id="rows"></tbody>
+</table></div>
+<div class="summary">
+<div><span>Tiempo de calidad</span><strong id="qTime">0:00</strong></div>
+<div><span>Distancia calidad</span><strong id="qDist">—</strong></div>
+<div><span>Ritmo medio calidad</span><strong id="qPace">—</strong></div>
+<div><span>Tiempo total</span><strong id="sumTotal">0:00</strong></div>
+</div>
+</section>
+
+<section class="panel">
+<h2 class="panel-title">Informe para pasarme</h2>
+<label class="field">FC media (opcional)<input id="avgHr" inputmode="numeric" placeholder="ej. 166"></label>
+<label class="field">FC máxima (opcional)<input id="maxHr" inputmode="numeric" placeholder="ej. 184"></label>
+<label class="field">RPE / 10 (opcional)<input id="rpe" inputmode="decimal" placeholder="ej. 8"></label>
+<label class="field">Sensaciones / incidencias<textarea id="notes" placeholder="Ej.: fresco al principio, 4.ª vuelta exigente, acabé con margen..."></textarea></label>
+<div class="export" style="margin-top:11px">
+<button id="copyBtn">Copiar informe</button>
+<button id="shareBtn">Compartir</button>
+<button id="txtBtn">Descargar TXT</button>
+<button id="csvBtn">Descargar CSV</button>
+</div>
+<div class="report" id="report"></div>
+</section>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id);
+const KEY='hyrox_041026_v2_gps';
+const P=[];
+function add(name,sec,type,target,round=''){P.push({name,sec,type,target,round});}
+add('Calentamiento',900,'warm','Suave · Z2');
+for(let i=1;i<=3;i++){add('Progresivo '+i,20,'fast','Ágil · 4:10–4:20/km','Activación');add('Suave',40,'rest','Trote muy suave','Activación');}
+for(let r=1;r<=4;r++){add('Bloque controlado',240,'tempo','4:45–4:50/km','Vuelta '+r+'/4');add('Bloque fuerte',120,'fast','4:20–4:30/km','Vuelta '+r+'/4');add('Recuperación',120,'rest','Trote muy suave','Vuelta '+r+'/4');}
+for(let i=1;i<=3;i++){add('Finisher '+i,30,'fast','4:00–4:10/km','Final');if(i<3)add('Recuperación',60,'rest','Trote muy suave','Final');}
+add('Enfriamiento',600,'cool','Muy suave');
+const qualityTypes=new Set(['tempo','fast']);
+function initial(){return{idx:0,running:false,paused:false,done:false,phaseStart:null,phaseElapsed:0,totalStart:null,totalPaused:0,pauseStarted:null,logs:[],distances:{},gpsDistances:{},gpsTotal:0,meta:{}}}
+let s=initial(),prev=null,wakeLock=null,audioCtx=null,gpsWatch=null,lastGps=null,gpsActive=false,lastGpsSave=0;
+try{const raw=localStorage.getItem(KEY);if(raw)s=Object.assign(initial(),JSON.parse(raw));}catch(e){}
+function save(){localStorage.setItem(KEY,JSON.stringify(s));}
+function fmt(ms,tenths=false){ms=Math.max(0,ms||0);let z=Math.floor(ms/1000),m=Math.floor(z/60),sec=z%60,d=Math.floor((ms%1000)/100);return String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0')+(tenths?'.'+d:'');}
+function clockHTML(ms){ms=Math.max(0,ms);let z=Math.floor(ms/1000),m=Math.floor(z/60),sec=z%60,d=Math.floor((ms%1000)/100);return String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0')+'<small>.'+d+'</small>';}
+function phaseElapsed(now=Date.now()){if(!s.running)return s.phaseElapsed||0;if(s.paused)return s.phaseElapsed||0;return (s.phaseElapsed||0)+(now-s.phaseStart);}
+function totalElapsed(now=Date.now()){if(!s.totalStart)return 0;const end=s.done?(s.logs.at(-1)?.end||now):now;let paused=s.totalPaused||0;if(s.paused&&s.pauseStarted)paused+=now-s.pauseStarted;return Math.max(0,end-s.totalStart-paused);}
+function remaining(now=Date.now()){const p=P[s.idx];return p?Math.max(0,p.sec*1000-phaseElapsed(now)):0;}
+function beep(type){try{if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.connect(g);g.connect(audioCtx.destination);o.frequency.value=type==='fast'?880:type==='rest'?520:700;g.gain.setValueAtTime(.06,audioCtx.currentTime);g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+.22);o.start();o.stop(audioCtx.currentTime+.23);}catch(e){}if(navigator.vibrate)navigator.vibrate(type==='fast'?[120,60,120]:[90,40,90]);}
+function snapshot(){prev=JSON.parse(JSON.stringify(s));}
+function hav(a,b){const R=6371000,rad=x=>x*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),q=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLon/2)**2;return 2*R*Math.atan2(Math.sqrt(q),Math.sqrt(1-q));}
+function gpsLabel(msg,cls=''){const el=$('gpsState');el.textContent=msg;el.className='gpspill '+cls;}
+function startGPS(){
+  if(gpsActive)return;
+  if(!navigator.geolocation){gpsLabel('GPS no disponible','warn');$('status').textContent='Este navegador no ofrece geolocalización.';return;}
+  gpsLabel('Buscando GPS…','warn');
+  gpsWatch=navigator.geolocation.watchPosition(onGPS,onGPSError,{enableHighAccuracy:true,maximumAge:1000,timeout:12000});
+  gpsActive=true;$('gpsBtn').textContent='⌖ GPS activo';$('gpsBtn').disabled=true;
+}
+function onGPSError(e){gpsLabel('GPS sin señal/permiso','warn');$('gpsAcc').textContent='Precisión —';$('status').textContent=e.code===1?'Permiso de ubicación denegado. Actívalo para este sitio y recarga.':'No llega una posición GPS fiable todavía.';}
+function onGPS(pos){
+  const c=pos.coords,cur={lat:c.latitude,lon:c.longitude,acc:c.accuracy||999,t:pos.timestamp||Date.now()};
+  $('gpsAcc').textContent='Precisión ±'+Math.round(cur.acc)+' m';
+  $('gpsAcc').className='gpspill '+(cur.acc<=20?'good':cur.acc<=35?'':'warn');
+  gpsLabel(cur.acc<=35?'GPS midiendo':'GPS señal floja',cur.acc<=20?'good':cur.acc>35?'warn':'');
+  if(cur.acc>45){lastGps=cur;renderGPS();return;}
+  if(lastGps){
+    const dt=Math.max(.2,(cur.t-lastGps.t)/1000),d=hav(lastGps,cur);
+    const jumpLimit=Math.max(30,dt*9+Math.max(cur.acc,lastGps.acc)*.65);
+    if(d>=1.2 && d<=jumpLimit && s.running && !s.paused && s.totalStart && !s.done){
+      s.gpsTotal=(Number(s.gpsTotal)||0)+d;
+      // Si una lectura cruza justo un cambio de fase, repartimos los metros por tiempo.
+      const boundary=s.phaseStart;
+      if(boundary && lastGps.t<boundary && boundary<cur.t && s.idx>0){
+        const fracOld=(boundary-lastGps.t)/(cur.t-lastGps.t);
+        s.gpsDistances[s.idx-1]=(Number(s.gpsDistances[s.idx-1])||0)+d*fracOld;
+        s.gpsDistances[s.idx]=(Number(s.gpsDistances[s.idx])||0)+d*(1-fracOld);
+      }else{
+        s.gpsDistances[s.idx]=(Number(s.gpsDistances[s.idx])||0)+d;
+      }
+      if(Date.now()-lastGpsSave>2000){save();lastGpsSave=Date.now();}
+    }
+  }
+  lastGps=cur;renderGPS();renderResults();renderReport();
+}
+function renderGPS(){
+  const d=Number(s.gpsDistances?.[s.idx]||0);$('phaseMeters').textContent=Math.round(d)+' m';$('totalMeters').textContent=((Number(s.gpsTotal)||0)/1000).toFixed(2).replace('.',',')+' km';
+}
+function effectiveDistance(idx){const manual=s.distances?.[idx];if(manual!==undefined&&manual!==null&&String(manual).trim()!=='')return Number(manual)||0;return Math.round(Number(s.gpsDistances?.[idx]||0));}
+
+function start(){if(s.done)return;if(!s.totalStart){if(!gpsActive)startGPS();snapshot();s.totalStart=Date.now();s.phaseStart=Date.now();s.running=true;s.paused=false;try{audioCtx=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}beep(P[s.idx].type);requestWake();save();render();return;}if(s.paused){snapshot();const now=Date.now();s.totalPaused+=(now-s.pauseStarted);s.pauseStarted=null;s.phaseStart=now;s.running=true;s.paused=false;save();render();return;}snapshot();s.phaseElapsed=phaseElapsed();s.running=false;s.paused=true;s.pauseStarted=Date.now();save();render();}
+function finishPhase(auto=false){if(s.done)return;const now=Date.now(),p=P[s.idx],actual=Math.min(phaseElapsed(now),p.sec*1000+600000);snapshot();s.logs.push({idx:s.idx,name:p.name,type:p.type,target:p.target,round:p.round,planned:p.sec*1000,actual,start:s.phaseStart?now-actual:null,end:now,auto});s.idx++;s.phaseElapsed=0;s.phaseStart=now;s.running=true;s.paused=false;if(s.idx>=P.length){s.done=true;s.running=false;s.phaseStart=null;beep('fast');}else beep(P[s.idx].type);save();render();}
+function nextNow(){if(!s.totalStart)return;if(s.paused){$('status').textContent='Reanuda antes de terminar una fase.';return;}finishPhase(false);}
+function undo(){if(!prev)return;if(!confirm('¿Deshacer la última acción?'))return;s=prev;prev=null;save();render();}
+function skipFinisher(){if(s.done)return;const idx=P.findIndex((p,i)=>i>=s.idx&&p.name.startsWith('Finisher'));
+if(idx<0)return;const cool=P.findIndex((p,i)=>i>=idx&&p.type==='cool');if(cool<0)return;if(!confirm('¿Saltar el finisher y pasar al enfriamiento?'))return;snapshot();s.idx=cool;s.phaseElapsed=0;s.phaseStart=Date.now();s.running=true;s.paused=false;save();beep('cool');render();}
+function reset(){if(s.totalStart&&!confirm('¿Borrar el entrenamiento y todos los datos?'))return;if(gpsWatch!==null&&navigator.geolocation)navigator.geolocation.clearWatch(gpsWatch);gpsWatch=null;gpsActive=false;lastGps=null;$('gpsBtn').disabled=false;$('gpsBtn').textContent='⌖ Activar GPS';gpsLabel('GPS desactivado');$('gpsAcc').textContent='Precisión —';s=initial();prev=null;localStorage.removeItem(KEY);render();}
+function pace(ms,m){if(!m||m<=0||!ms)return'—';const sec=(ms/1000)/(m/1000),mi=Math.floor(sec/60),ss=Math.round(sec-mi*60);return mi+':'+String(ss).padStart(2,'0')+'/km';}
+function loggedFor(i){return s.logs.find(x=>x.idx===i);}
+function updateDistance(idx,val){if(String(val).trim()==='')delete s.distances[idx];else s.distances[idx]=val;save();renderResults();renderReport();}
+function totals(){let qt=0,qd=0;for(const l of s.logs){if(qualityTypes.has(l.type)){qt+=l.actual;qd+=effectiveDistance(l.idx);}}return{qt,qd,total:totalElapsed()};}
+function renderStrip(){const strip=$('strip');strip.innerHTML='';P.forEach((p,i)=>{const c=document.createElement('div');c.className='chip '+(p.type==='rest'?'rest ':p.type==='fast'?'fast ':p.type==='warm'||p.type==='cool'?'warm ':'')+(i===s.idx&&!s.done?'active ':i<s.idx||s.done?'done ':'');c.innerHTML='<b>'+shortName(p)+'</b>'+shortTime(p.sec);strip.appendChild(c);});setTimeout(()=>{const a=strip.querySelector('.active');if(a)a.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});},0);}
+function shortName(p){if(p.name==='Bloque controlado')return'4′';if(p.name==='Bloque fuerte')return'2′';if(p.name==='Recuperación')return'REC';if(p.name.startsWith('Progresivo'))return'20″';if(p.name==='Suave')return'40″';if(p.name.startsWith('Finisher'))return'30″';if(p.name==='Calentamiento')return'CAL';if(p.name==='Enfriamiento')return'ENF';return p.name.slice(0,4)}
+function shortTime(sec){return sec>=60?Math.floor(sec/60)+'′'+(sec%60?' '+sec%60+'″':''):sec+'″'}
+function render(){renderStrip();const p=P[s.idx]||P.at(-1);if(s.done){$('round').textContent='ENTRENAMIENTO TERMINADO';$('phaseName').textContent='Hecho';$('target').textContent='Exporta el informe ↓';$('target').className='target';$('clock').innerHTML=clockHTML(0);$('mainBtn').textContent='✓ TERMINADO';$('mainBtn').className='big done';$('mainBtn').disabled=true;$('nextBtn').disabled=true;$('skipFinisher').disabled=true;}else{$('round').textContent=p.round||'FASE '+(s.idx+1)+'/'+P.length;$('phaseName').textContent=p.name;$('target').textContent=p.target;$('target').className='target '+(p.type==='fast'?'fast':p.type==='rest'?'rest':'');$('mainBtn').disabled=false;$('mainBtn').className='big '+(s.paused?'':'pause');$('mainBtn').textContent=!s.totalStart?'▶ EMPEZAR ENTRENAMIENTO':s.paused?'▶ REANUDAR':'Ⅱ PAUSAR';$('nextBtn').disabled=!s.totalStart||s.paused;$('skipFinisher').disabled=!s.totalStart||s.paused||s.idx>=P.findIndex(x=>x.name.startsWith('Finisher'))||s.idx<P.findIndex(x=>x.name==='Bloque controlado');}
+$('undoBtn').disabled=!prev;$('next').textContent=s.done?'—':s.idx+1<P.length?shortName(P[s.idx+1])+' · '+shortTime(P[s.idx+1].sec):'FIN';tick();renderResults();renderReport();renderGPS();}
+function tick(){const now=Date.now();$('totalClock').textContent=fmt(totalElapsed(now),true);if(s.done){$('sumTotal').textContent=fmt(totalElapsed(now));return;}const p=P[s.idx],el=phaseElapsed(now),rem=Math.max(0,p.sec*1000-el);$('clock').innerHTML=clockHTML(rem);$('bar').style.width=Math.min(100,(el/(p.sec*1000))*100)+'%';if(s.running&&!s.paused&&el>=p.sec*1000)finishPhase(true);$('sumTotal').textContent=fmt(totalElapsed(now));}
+function renderResults(){const tbody=$('rows');tbody.innerHTML='';s.logs.forEach((l,n)=>{const tr=document.createElement('tr'),gps=Math.round(Number(s.gpsDistances?.[l.idx]||0)),manual=(s.distances?.[l.idx]!==undefined?String(s.distances[l.idx]):''),d=effectiveDistance(l.idx),src=manual!==''?'manual':gps?'GPS':'—';tr.innerHTML='<td>'+(n+1)+'</td><td>'+l.name+(l.round?' · '+l.round:'')+'</td><td>'+fmt(l.actual,true)+'</td><td>'+l.target+'</td><td><input class="dist" inputmode="numeric" data-idx="'+l.idx+'" value="'+(manual!==''?manual:(gps||''))+'" placeholder="GPS"><span class="auto">'+src+'</span></td><td class="pace">'+(d?pace(l.actual,d):'—')+'</td>';tbody.appendChild(tr);});tbody.querySelectorAll('input.dist').forEach(inp=>inp.addEventListener('change',e=>updateDistance(Number(e.target.dataset.idx),e.target.value.replace(',','.'))));const t=totals();$('qTime').textContent=fmt(t.qt);$('qDist').textContent=t.qd?(t.qd/1000).toFixed(2).replace('.',',')+' km':'—';$('qPace').textContent=t.qd?pace(t.qt,t.qd):'—';$('sumTotal').textContent=fmt(t.total);renderGPS();}
+function meta(){return{avgHr:$('avgHr').value,maxHr:$('maxHr').value,rpe:$('rpe').value,notes:$('notes').value};}
+function storeMeta(){s.meta=meta();save();renderReport();}
+function buildReport(){const t=totals(),m=meta(),lines=['INFORME HYROX · 04/10/2026','Sesión: 4 × (4\' controlados + 2\' fuertes + 2\' suaves) + 3 × 30" finisher','Estado: '+(s.done?'FINALIZADA':s.totalStart?'EN CURSO':'SIN EMPEZAR'),'Tiempo total: '+fmt(t.total,true),'Distancia total GPS: '+((Number(s.gpsTotal)||0)/1000).toFixed(2).replace('.',',')+' km','','BLOQUES'];s.logs.forEach((l,i)=>{const d=effectiveDistance(l.idx),gps=Math.round(Number(s.gpsDistances?.[l.idx]||0)),manual=s.distances?.[l.idx]!==undefined&&String(s.distances[l.idx]).trim()!=='';lines.push((i+1)+'. '+l.name+(l.round?' · '+l.round:'')+' | '+fmt(l.actual,true)+' | objetivo '+l.target+' | '+(d?d+' m | '+pace(l.actual,d)+' | '+(manual?'manual':'GPS'):'sin distancia'));});lines.push('','RESUMEN','Tiempo de calidad: '+fmt(t.qt,true),'Distancia de calidad: '+(t.qd?(t.qd/1000).toFixed(2).replace('.',',')+' km':'—'),'Ritmo medio ponderado de calidad: '+(t.qd?pace(t.qt,t.qd):'—'));if(m.avgHr)lines.push('FC media: '+m.avgHr+' ppm');if(m.maxHr)lines.push('FC máxima: '+m.maxHr+' ppm');if(m.rpe)lines.push('RPE: '+m.rpe+'/10');if(m.notes.trim())lines.push('Sensaciones: '+m.notes.trim());lines.push('','Nota GPS: la web no guarda coordenadas; solo distancias acumuladas. Las distancias GPS de móvil son aproximadas y pueden desviarse con mala cobertura, edificios o arbolado.');return lines.join('\n');}
+function renderReport(){$('report').textContent=buildReport();}
+function csv(){const out=[['fase','ronda','tipo','tiempo_s','objetivo','distancia_m','fuente','ritmo']];s.logs.forEach(l=>{const d=effectiveDistance(l.idx),manual=s.distances?.[l.idx]!==undefined&&String(s.distances[l.idx]).trim()!=='';out.push([l.name,l.round,l.type,(l.actual/1000).toFixed(1),l.target,d||'',d?(manual?'manual':'GPS'):'',d?pace(l.actual,d):'']);});return '\ufeff'+out.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(';')).join('\r\n');}
+function download(text,mime,name){const b=new Blob([text],{type:mime}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500);}
+async function copy(){try{await navigator.clipboard.writeText(buildReport());$('status').textContent='Informe copiado. Pégamelo en el chat.';}catch(e){$('status').textContent='No se pudo copiar. Descarga el TXT.';}}
+async function share(){const text=buildReport();if(navigator.share){try{await navigator.share({title:'Entreno HYROX 04/10/2026',text});return;}catch(e){}}download(text,'text/plain;charset=utf-8','hyrox-041026.txt');}
+async function requestWake(){if(!$('wake').checked||!('wakeLock'in navigator))return;try{wakeLock=await navigator.wakeLock.request('screen');$('status').textContent='Pantalla activa mientras el navegador lo permita.';}catch(e){$('status').textContent='No se pudo bloquear la pantalla encendida. El crono seguirá calculando el tiempo al volver.';}}
+$('gpsBtn').onclick=startGPS;$('mainBtn').onclick=start;$('nextBtn').onclick=nextNow;$('skipFinisher').onclick=skipFinisher;$('undoBtn').onclick=undo;$('resetBtn').onclick=reset;$('copyBtn').onclick=copy;$('shareBtn').onclick=share;$('txtBtn').onclick=()=>download(buildReport(),'text/plain;charset=utf-8','hyrox-041026.txt');$('csvBtn').onclick=()=>download(csv(),'text/csv;charset=utf-8','hyrox-041026.csv');['avgHr','maxHr','rpe','notes'].forEach(id=>$(id).addEventListener('input',storeMeta));$('wake').addEventListener('change',()=>{if($('wake').checked)requestWake();else if(wakeLock){wakeLock.release();wakeLock=null;}});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){if($('wake').checked&&!wakeLock)requestWake();tick();}});
+if(!window.isSecureContext){$('status').textContent='Aviso: el GPS del navegador suele requerir HTTPS. Si no pide permiso al pulsar «Activar GPS», abre este cronómetro desde una web HTTPS.';}if(s.meta){$('avgHr').value=s.meta.avgHr||'';$('maxHr').value=s.meta.maxHr||'';$('rpe').value=s.meta.rpe||'';$('notes').value=s.meta.notes||'';}render();setInterval(tick,100);
+})();
+</script>
+</body></html>
