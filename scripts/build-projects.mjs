@@ -74,17 +74,17 @@ function renderGenerated(p) {
       { '@type': 'ListItem', position: 3, name: p.title, item: url }
     ]
   };
-  const head = HEAD.replace('{{PERSON_NAME}}', esc(CONFIG.site.personName)).replace('{{SITE_NAME}}', esc(CONFIG.site.name))
-    .replace('{{TITLE}}', esc(title)).replace('{{DESCRIPTION}}', esc(description)).replace('{{CANONICAL}}', url)
-    .replace('{{OG_IMAGE}}', `${BASE_URL}${first}`).replace('{{OG_ALT}}', esc(p.cardAlt || p.title));
-  const header = HEADER.replaceAll('{{PERSON_NAME}}', esc(CONFIG.site.personName)).replace('{{LAST_NAME}}', esc('Carrascosa'))
-    .replace('{{PROFESSION}}', esc(CONFIG.site.profession));
+  const head = HEAD.replaceAll('{{PERSON_NAME}}', esc(CONFIG.site.personName)).replaceAll('{{SITE_NAME}}', esc(CONFIG.site.name))
+    .replaceAll('{{TITLE}}', esc(title)).replaceAll('{{DESCRIPTION}}', esc(description)).replaceAll('{{CANONICAL}}', url)
+    .replaceAll('{{OG_IMAGE}}', `${BASE_URL}${first}`).replaceAll('{{OG_ALT}}', esc(p.cardAlt || p.title));
+  const header = HEADER.replaceAll('{{PERSON_NAME}}', esc(CONFIG.site.personName)).replaceAll('{{LAST_NAME}}', esc('Carrascosa'))
+    .replaceAll('{{PROFESSION}}', esc(CONFIG.site.profession));
   const footer = FOOTER.replaceAll('{{PERSON_NAME}}', esc(CONFIG.site.personName)).replaceAll('{{EMAIL}}', esc(CONFIG.site.email)).replaceAll('{{INSTAGRAM}}', esc(CONFIG.site.instagram));
   const imgs = files.map((f, i) => `<div class="photo-block"><img src="/proyectos/${esc(p.slug)}/${esc(f)}" decoding="async"${i === 0 ? ' fetchpriority="high"' : ' loading="lazy"'} alt="${esc(p.imageAlts?.[f] || (i === 0 ? p.cardAlt || p.title : `${p.title} — imagen ${i + 1}`))}"></div>`).join('\n');
-  return TEMPLATE.replace('{{HEAD_COMMON}}', head).replace('{{VERIFICATION}}', '').replace('{{GTM_ID}}', esc(CONFIG.analytics.gtmId))
-    .replace('{{SEO_TITLE}}', esc(title)).replace('{{PROJECT_TITLE}}', esc(p.title)).replace('{{DESCRIPTION}}', esc(description))
-    .replace('{{SCHEMA}}', jsonLd(schema)).replace('{{BREADCRUMB}}', jsonLd(breadcrumb)).replace('{{HEADER}}', header)
-    .replace('{{FOOTER}}', footer).replace('{{METADATA}}', metadata(p)).replace('{{IMAGES}}', imgs);
+  return TEMPLATE.replaceAll('{{HEAD_COMMON}}', head).replaceAll('{{VERIFICATION}}', '').replaceAll('{{GTM_ID}}', esc(CONFIG.analytics.gtmId))
+    .replaceAll('{{SEO_TITLE}}', esc(title)).replaceAll('{{PROJECT_TITLE}}', esc(p.title)).replaceAll('{{DESCRIPTION}}', esc(description))
+    .replaceAll('{{OG_IMAGE}}', `${BASE_URL}${first}`).replaceAll('{{SCHEMA}}', jsonLd(schema)).replaceAll('{{BREADCRUMB}}', jsonLd(breadcrumb)).replaceAll('{{HEADER}}', header)
+    .replaceAll('{{FOOTER}}', footer).replaceAll('{{METADATA}}', metadata(p)).replaceAll('{{IMAGES}}', imgs);
 }
 
 function patchPageMeta(html, title, description, canonical, ogImage) {
