@@ -4,14 +4,20 @@
     "personName": "Marcos Carrascosa",
     "profession": "Arquitecto",
     "baseUrl": "https://www.marcoscarrascosa.com",
-    "email": "marcoscarrascosa.arq@gmail.com",
+    "email": "info@marcoscarrascosa.com",
     "instagram": "https://www.instagram.com/m_carrascosa/",
     "defaultTitle": "Marcos Carrascosa | Arquitecto en Zaragoza y Navarra",
     "defaultDescription": "Arquitecto en Zaragoza y Navarra especializado en rehabilitacion, patrimonio, vivienda, locales y obra publica."
   },
   "seo": {
-    "primaryAreas": ["Zaragoza", "Navarra", "Aragon"],
-    "languages": ["es"],
+    "primaryAreas": [
+      "Zaragoza",
+      "Navarra",
+      "Aragon"
+    ],
+    "languages": [
+      "es"
+    ],
     "projectPathPrefix": "/proyectos/"
   },
   "analytics": {

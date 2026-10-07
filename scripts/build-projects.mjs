@@ -1,3 +1,4 @@
+import { buildDesign } from './build-design.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -199,6 +200,7 @@ patchProjectsPage();
 patchStaticSeo();
 generateNewProjects();
 sitemap();
+buildDesign(ROOT, PUBLIC, CONFIG);
 analytics();
 const result = spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'optimize-images.mjs'), PUBLIC], { stdio: 'inherit' });
 if (result.status !== 0) throw new Error('La optimización de imágenes ha fallado.');
