@@ -18,11 +18,12 @@ function filesIn(dir) {
 }
 
 for (const file of filesIn(ROOT)) {
+  if (path.relative(ROOT, file).split(path.sep).slice(0, 2).join('/') === 'img/portada') continue;
   const stat = fs.statSync(file);
   if (stat.size < 350 * 1024) continue;
   const ext = path.extname(file).toLowerCase();
   const tmp = `${file}.tmp`;
-  const image = sharp(file).rotate().resize({ width: MAX_WIDTH, withoutEnlargement: true });
+  const image = sharp(fs.readFileSync(file)).rotate().resize({ width: MAX_WIDTH, withoutEnlargement: true });
   if (ext === '.webp') await image.webp({ quality: 82, effort: 4 }).toFile(tmp);
   else if (ext === '.png') await image.png({ compressionLevel: 9, palette: false }).toFile(tmp);
   else await image.jpeg({ quality: 82, mozjpeg: true }).toFile(tmp);
