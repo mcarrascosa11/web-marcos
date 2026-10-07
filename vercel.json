@@ -8,20 +8,21 @@
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
       ]
     },
     {
       "source": "/img/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
     },
     {
-      "source": "/js/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
-    },
-    {
-      "source": "/proyectos/:slug/",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
     }
   ],
   "redirects": [
@@ -30,7 +31,11 @@
     { "source": "/sobre-mi.html", "destination": "/sobre-mi", "permanent": true },
     { "source": "/Sobre-mi.html", "destination": "/sobre-mi", "permanent": true },
     { "source": "/contacto.html", "destination": "/contacto", "permanent": true },
-
+    { "source": "/avisolegal1.html", "destination": "/aviso-legal", "permanent": true },
+    { "source": "/privacidad1.html", "destination": "/privacidad", "permanent": true },
+    { "source": "/aviso-legal.html", "destination": "/aviso-legal", "permanent": true },
+    { "source": "/privacidad.html", "destination": "/privacidad", "permanent": true },
+    { "source": "/cookies.html", "destination": "/cookies", "permanent": true },
     { "source": "/fp-tudela.html", "destination": "/proyectos/fp-tudela/", "permanent": true },
     { "source": "/rehabilitacion-cine-mapfre.html", "destination": "/proyectos/rehabilitacion-cine-mapfre/", "permanent": true },
     { "source": "/remodelacion-calle-misericordia.html", "destination": "/proyectos/remodelacion-calle-misericordia/", "permanent": true },
@@ -42,7 +47,6 @@
     { "source": "/ampliacion-cifp-rio-ebro.html", "destination": "/proyectos/ampliacion-cifp-rio-ebro/", "permanent": true },
     { "source": "/rehabilitacion-pabellon-arguedas.html", "destination": "/proyectos/rehabilitacion-pabellon-arguedas/", "permanent": true },
     { "source": "/rehabilitacion-vestuarios-sdr-arenas.html", "destination": "/proyectos/rehabilitacion-vestuarios-sdr-arenas/", "permanent": true },
-
     { "source": "/proyectos/profesionales/remodelacion-y-renovacion-calles", "destination": "/proyectos/remodelacion-calle-misericordia/", "permanent": true },
     { "source": "/proyectos/profesionales/rehabilitacion-san-nicolas-de-bari", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
     { "source": "/proyectos/profesionales", "destination": "/proyectos", "permanent": true },
@@ -57,6 +61,8 @@
     { "source": "/contacto", "destination": "/contacto.html" },
     { "source": "/proyectos", "destination": "/proyectos.html" },
     { "source": "/sobre-mi", "destination": "/sobre-mi.html" },
-    { "source": "/proyectos/:slug/", "destination": "/:slug.html" }
+    { "source": "/aviso-legal", "destination": "/aviso-legal.html" },
+    { "source": "/privacidad", "destination": "/privacidad.html" },
+    { "source": "/cookies", "destination": "/cookies.html" }
   ]
 }

@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /404.html
-Disallow: /avisolegal1.html
-Disallow: /privacidad1.html
-
-Sitemap: https://www.marcoscarrascosa.com/sitemap.xml

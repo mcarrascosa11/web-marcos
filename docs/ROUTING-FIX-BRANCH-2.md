@@ -1,1 +1,0 @@
-# Preparacion de rutas
