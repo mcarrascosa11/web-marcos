@@ -27,5 +27,3 @@ fotos:
   09.webp: Material de entrenamiento junto a la ventana de DOM Studio
   10.webp: Vista del local antes de la rehabilitación
 ---
-
-Rehabilitación de un local de 155 m² en Zaragoza para DOM Studio. Proyecto de Alberto Adell y Marcos Carrascosa, ejecutado por Reformas Zaragoza Morem y finalizado en septiembre de 2026.

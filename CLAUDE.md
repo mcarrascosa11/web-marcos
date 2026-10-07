@@ -10,7 +10,7 @@ Marcos no toca código: manda fotos y textos y Claude publica. Todo el contenido
 
 ```
 contenido/
-  sitio.yml                 datos del estudio, textos de inicio, SEO general, GTM
+  sitio.yml                 datos del estudio, SEO general, GTM (la portada es solo el carrusel, sin texto ni pie)
   sobre-mi.md               biografía (página Estudio)
   retrato.jpg               foto de la página Estudio
   legal/*.md                aviso legal, privacidad, cookies ({{email}}, {{nif}}… salen de sitio.yml)
@@ -49,7 +49,8 @@ Las redirecciones de URLs antiguas están en `vercel.json`.
    - `seo_titulo` (unos 60 caracteres, con tipo de obra y lugar) y `seo_descripcion` (unos 150 caracteres).
    - `ficha:` líneas `Etiqueta: valor` en el orden en que se muestran (Superficie, Promotor, PEM, Constructora, Equipo, Tipo, Fotografía…).
    - `fotos:` textos alternativos por archivo (`03.jpg: Patio interior con la escalera de madera`). Los que falten se generan solos.
-   - Debajo de la cabecera va el texto del proyecto en párrafos. Respeta la redacción de Marcos; corrige solo erratas y tildes.
+   - Los proyectos van sin texto: Marcos lo prefiere así. El .md solo lleva la cabecera. Si algún día quiere texto,
+     se escribe debajo de la cabecera en párrafos y la web lo muestra bajo el título.
 4. `npm run build`: valida los datos y falla con un mensaje claro si algo está mal.
 5. Revisa el resultado en local antes de publicar (listado, ficha, móvil).
 6. Commit y push a `main`. Comprueba en https://www.marcoscarrascosa.com/proyectos/<slug>/ que está publicado.

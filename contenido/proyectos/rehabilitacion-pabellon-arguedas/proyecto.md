@@ -19,5 +19,3 @@ fotos:
   02.webp: Render exterior a pie de calle de la plaza con pérgola vegetal y multitud de personas con indumentaria festiva blanca y roja.
   03.webp: Imagen dividida mostrando un render interior con un gran banquete popular dentro de la nave y un render exterior de la zona de descanso bajo la pérgola.
 ---
-
-Propuesta de concurso para la rehabilitación de un pabellón multiusos de 650 m² en Arguedas (Navarra), promovida por el Ayuntamiento de Arguedas. Equipo: José Ignacio Zuazu, Alberto Adell y Marcos Carrascosa.

@@ -20,5 +20,3 @@ ficha:
   Tipo: Rehabilitación
   Fotografía: Marcos Carrascosa
 ---
-
-Rehabilitación de los vestuarios de la S.D.R. Arenas en Tudela, con una superficie de 619 m². El proyecto se obtuvo por licitación pública y se desarrolló junto a Alberto Adell Lázaro y Arturo Llorente, con Raúl Echarren como arquitecto técnico. La obra, ejecutada por Construcciones ECAY, finalizó en septiembre de 2026.

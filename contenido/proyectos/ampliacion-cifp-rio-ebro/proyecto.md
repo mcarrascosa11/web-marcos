@@ -26,5 +26,3 @@ fotos:
   08.webp: Composición de planos arquitectónicos con distribución general en planta baja y vista de alzado.
   09.webp: Composición de planos arquitectónicos con distribución general en planta primera y vista de alzado
 ---
-
-Propuesta de concurso para la ampliación del Centro Integrado de Formación Profesional Río Ebro en Miranda de Ebro (Burgos): 2.700 m² con un presupuesto de ejecución material de 5.000.000 €, promovida por la Consejería de Educación de la Junta de Castilla y León.

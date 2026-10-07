@@ -82,8 +82,6 @@ ficha:
   Equipo: Marcos Carrascosa
   Fotografía: Marcos Carrascosa
 ---
-
-Texto del proyecto.
 `);
   console.log(`  Creado ${mdFile}: falta completar los datos.`);
 }

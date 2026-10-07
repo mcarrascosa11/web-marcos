@@ -22,5 +22,3 @@ fotos:
   01.jpg: Interior de la clínica veterinaria mostrando la zona de recepción con techo de cerchas de madera expuestas
   02.jpg: Fotografía del estado previo del local antes de la reforma, mostrando una nave diáfana con cubierta de madera
 ---
-
-Adecuación de un local de 135 m² en Murchante (Navarra) para una clínica veterinaria. La obra, ejecutada por Construcciones Aguado y Rupérez con un PEM de 150.000 €, finalizó en abril de 2024.

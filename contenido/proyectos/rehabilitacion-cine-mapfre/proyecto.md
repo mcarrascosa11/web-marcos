@@ -21,5 +21,3 @@ fotos:
   11.jpg: Vista nocturna de la fachada del edificio de oficinas Mapfre en esquina con estelas de luz de coches
   12.jpg: Fotografía antigua en blanco y negro del edificio original Cine Novedades antes de la rehabilitación
 ---
-
-Rehabilitación de un antiguo cine en Cabanillas (Navarra) para convertirlo en oficinas de Mapfre: 850 m² con un PEM de 650.000 €. Obra finalizada en febrero de 2021.

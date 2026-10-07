@@ -23,5 +23,3 @@ fotos:
   01.jpg: Interior rehabilitado de la iglesia de San Nicolás con suelo de madera e instalación visual en el ábside
   02.jpg: Estado previo en ruinas del interior de la iglesia de San Nicolás en blanco y negro
 ---
-
-Rehabilitación de la iglesia de San Nicolás de Bari en Tudela, edificio catalogado como Bien de Interés Cultural, para el Ayuntamiento de Tudela. Intervención sobre 510 m² con un PEM de 850.000 €, ejecutada por Construcciones Leache y finalizada en junio de 2024.

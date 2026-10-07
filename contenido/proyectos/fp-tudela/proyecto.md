@@ -27,5 +27,3 @@ fotos:
   08.webp: Planos de secciones y alzados mostrando el perfil y la configuración de las fachadas del centro educativo
   09.webp: Render exterior edificio FP Tudela
 ---
-
-Propuesta de concurso para un nuevo edificio de formación profesional de 3.500 m² en Tudela (Navarra), promovido por el Departamento de Educación. Equipo: Santiago Carroquino, Jaime Gómez, Alberto Adell y Marcos Carrascosa.

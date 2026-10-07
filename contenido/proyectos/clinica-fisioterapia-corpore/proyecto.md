@@ -20,5 +20,3 @@ fotos:
   01.jpg: Fachada exterior a pie de calle de la clínica con cerramientos en color turquesa bajo un edificio de ladrillo
   02.jpg: Sala de espera interior con suelo de madera, banco en forma de L y contraste de paredes blancas con pared de acento turquesa
 ---
-
-Ampliación de la clínica de fisioterapia Corpore en Zaragoza: 100 m² de nuevos espacios con un PEM de 45.000 €. Obra finalizada en marzo de 2024.
