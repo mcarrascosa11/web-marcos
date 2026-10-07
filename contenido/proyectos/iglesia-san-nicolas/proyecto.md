@@ -1,7 +1,6 @@
 ---
 titulo: Rehabilitación de San Nicolás de Bari
 titulo_corto: Rehabilitación de San Nicolás de Bari
-titulo_cabecera: San Nicolás de Bari
 categoria: rehabilitación
 ubicacion: Tudela, Navarra
 fecha: 2024-06

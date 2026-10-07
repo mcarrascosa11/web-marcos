@@ -92,7 +92,7 @@ const GALLERY_HALF = '(max-width: 600px) calc(100vw - 36px), calc(50vw - 36px)';
 export function projectMain(p) {
   const meta = p.ficha.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('');
   const gallery = p.galeria.map((im, i) => `<div><button data-photo="${i}" aria-label="Ampliar imagen ${i + 1}">${img(im.image, im.alt, { sizes: i % 5 === 0 ? GALLERY_FULL : GALLERY_HALF })}</button></div>`).join('');
-  return `<section class="detail-hero">${coverImg(p.portada, p.portadaAlt, { mobile: p.portadaMovil, priority: true })}<p class="hero-title">${esc(p.tituloCabecera)}</p></section><section class="detail-info"><dl class="metadata">${meta}</dl><div class="detail-intro"><h1>${esc(p.titulo)}</h1><div class="sub">${esc(p.ubicacion)} · ${esc(p.fechaTexto)}</div>${p.texto ? `<div class="detail-text">${p.texto}</div>` : ''}<a class="back" href="/proyectos">← Todos los proyectos</a></div></section><div class="gallery">${gallery}</div>`;
+  return `<section class="detail-hero">${coverImg(p.portada, p.portadaAlt, { mobile: p.portadaMovil, priority: true })}</section><section class="detail-info"><dl class="metadata">${meta}</dl><div class="detail-intro"><h1>${esc(p.titulo)}</h1><div class="sub">${esc(p.ubicacion)} · ${esc(p.fechaTexto)}</div>${p.texto ? `<div class="detail-text">${p.texto}</div>` : ''}<a class="back" href="/proyectos">← Todos los proyectos</a></div></section><div class="gallery">${gallery}</div>`;
 }
 
 export const LIGHTBOX = '<dialog class="lightbox" aria-label="Galería de imágenes"><button class="lb-close">Cerrar ×</button><button class="lb-prev" aria-label="Imagen anterior">‹</button><img alt=""><button class="lb-next" aria-label="Imagen siguiente">›</button></dialog>\n';

@@ -42,9 +42,9 @@ Las redirecciones de URLs antiguas están en `vercel.json`.
    - Las fotos se numeran por orden de nombre de archivo. Si Marcos indica otro orden, renómbralas antes.
    - Avisa a Marcos si el script dice que alguna foto es pequeña: la portada necesita 3000 px o más en el lado largo para verse nítida.
 3. Completa `contenido/proyectos/<slug>/proyecto.md` (el script crea la plantilla). Campos:
-   - Obligatorios: `titulo`, `titulo_corto` (tarjeta y cabecera), `categoria`, `ubicacion`, `fecha` (`AAAA-MM`).
+   - Obligatorios: `titulo`, `titulo_corto` (tarjeta del listado), `categoria`, `ubicacion`, `fecha` (`AAAA-MM`).
    - `categoria`: rehabilitación, espacio urbano, local comercial, educacional o vivienda. Una categoría nueva crea su filtro sola.
-   - `estado`, `portada`, `portada_alt`, `tarjeta_alt`, `titulo_cabecera` (si el título de la cabecera debe ser distinto).
+   - `estado`, `portada`, `portada_alt`, `tarjeta_alt`.
    - `inicio: N` lo pone en el carrusel de la portada en la posición N (hay que reordenar los demás si hace falta).
    - `seo_titulo` (unos 60 caracteres, con tipo de obra y lugar) y `seo_descripcion` (unos 150 caracteres).
    - `ficha:` líneas `Etiqueta: valor` en el orden en que se muestran (Superficie, Promotor, PEM, Constructora, Equipo, Tipo, Fotografía…).

@@ -64,7 +64,6 @@ main{min-height:70vh}
 .detail-hero{height:83svh;min-height:500px;position:relative;background:#433c36;color:white;overflow:hidden}
 .detail-hero img{height:100%;width:100%;object-fit:cover;display:block}
 .detail-hero:after{content:'';position:absolute;inset:0;background:linear-gradient(#0004,transparent 40%,#0005)}
-.detail-hero .hero-title{position:absolute;z-index:1;left:4%;right:4%;top:42%;margin:0;font-size:clamp(50px,7.5vw,115px);line-height:1.02;letter-spacing:-.065em;font-weight:500;text-align:center}
 .detail-info{display:grid;grid-template-columns:1fr 2fr;gap:10%;padding:38px 28px 60px;background:white}
 .metadata{margin:0}
 .metadata div{display:grid;grid-template-columns:105px 1fr;gap:15px;border-top:1px solid var(--line);padding:8px 0;font-size:14px}
@@ -167,7 +166,6 @@ nav{font-size:12px;gap:14px}
 .card-meta{display:block}
 .card-meta span{display:block}
 .detail-hero{height:72svh;min-height:420px}
-.detail-hero .hero-title{font-size:10vw;left:18px;right:18px;top:38%;text-align:left}
 .detail-info{display:flex;flex-direction:column-reverse;gap:35px;padding:28px 18px 35px}
 .detail-intro h1{font-size:25px}
 .metadata div{grid-template-columns:105px 1fr}

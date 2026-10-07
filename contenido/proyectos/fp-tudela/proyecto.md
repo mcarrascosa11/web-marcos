@@ -1,7 +1,6 @@
 ---
 titulo: Propuesta nuevo edificio de formación profesional
 titulo_corto: Propuesta edificio FP Tudela
-titulo_cabecera: Formación Profesional
 categoria: educacional
 ubicacion: Tudela, Navarra
 fecha: 2025-12

@@ -69,7 +69,6 @@ function loadProject(slug) {
     slug,
     titulo: data.titulo,
     tituloCorto: data.titulo_corto,
-    tituloCabecera: data.titulo_cabecera || data.titulo_corto,
     categoria: String(data.categoria).trim().toLowerCase(),
     ubicacion: data.ubicacion,
     fecha,
