@@ -1,0 +1,39 @@
+# Datos generales de la web. Todo lo que aparece en varias páginas sale de aquí.
+
+nombre: Marcos Carrascosa
+marca: Marcos Carrascosa Arquitectura
+profesion: Arquitecto
+url: https://www.marcoscarrascosa.com
+email: info@marcoscarrascosa.com
+telefono: "+34 699 828 171"
+direccion:
+  calle: Calle Alfonso I, 17
+  piso: 2ª planta
+  cp: "50003"
+  ciudad: Zaragoza
+  region: Aragón
+instagram: https://www.instagram.com/m_carrascosa/
+
+# Google Tag Manager. Solo se carga si el visitante acepta las cookies de análisis.
+gtm: GTM-MHHH2Q92
+
+seo:
+  titulo: Marcos Carrascosa | Arquitecto en Zaragoza y Navarra
+  descripcion: Arquitecto en Zaragoza y Navarra especializado en rehabilitación, patrimonio, vivienda, locales y obra pública.
+  zonas: [Zaragoza, Navarra, Aragón]
+
+# Texto bajo el carrusel de la página de inicio
+inicio:
+  titulo: Marcos Carrascosa, arquitecto en Zaragoza y Navarra
+  texto: >-
+    Estudio de arquitectura en Zaragoza con actividad constante en la Ribera de Navarra.
+    Rehabilitación, patrimonio, vivienda, locales comerciales y obra pública, siempre
+    a partir de una lectura atenta del lugar.
+
+# Datos para el aviso legal
+legal:
+  titular: Marcos Carrascosa Jiménez
+  nif: 78770561T
+  colegio: Colegio Oficial de Arquitectos Vasco-Navarro (COAVNA)
+  colegiado: "5803"
+  universidad: Universidad de Zaragoza
