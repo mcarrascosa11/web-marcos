@@ -22,13 +22,10 @@ seo:
   descripcion: Arquitecto en Zaragoza y Navarra especializado en rehabilitación, patrimonio, vivienda, locales y obra pública.
   zonas: [Zaragoza, Navarra, Aragón]
 
-# Texto bajo el carrusel de la página de inicio
+# Título principal (H1) de la página de inicio. No se ve: la portada es solo el carrusel,
+# pero Google y los lectores de pantalla lo leen.
 inicio:
   titulo: Marcos Carrascosa, arquitecto en Zaragoza y Navarra
-  texto: >-
-    Estudio de arquitectura en Zaragoza con actividad constante en la Ribera de Navarra.
-    Rehabilitación, patrimonio, vivienda, locales comerciales y obra pública, siempre
-    a partir de una lectura atenta del lugar.
 
 # Datos para el aviso legal
 legal:

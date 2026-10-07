@@ -14,7 +14,7 @@ header{position:sticky;top:0;z-index:10;height:59px;padding:0 22px;background:#f
 .brand strong{font-weight:700}
 nav{display:flex;align-items:center;gap:30px;font-size:14px;letter-spacing:0}
 nav a[aria-current=page]{text-decoration:underline;text-underline-offset:4px}
-.immersive header{position:fixed;width:100%;color:#fff;background:transparent;border-color:#ffffff70}
+.immersive header{position:fixed;width:100%;color:var(--ink);background:transparent;border-color:transparent}
 .immersive header.scrolled{color:var(--ink);background:var(--paper)}
 main{min-height:70vh}
 
@@ -25,7 +25,7 @@ main{min-height:70vh}
 .original-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.9)}
 .original-slide:after{content:'';position:absolute;inset:60% 0 0;background:linear-gradient(transparent,#0005)}
 .original-info{position:relative;z-index:2;padding:3rem 4rem;width:100%;color:#fff}
-.original-info h2{font-size:1.1rem;font-weight:600;text-transform:uppercase;line-height:1.5;margin:0 0 6px}
+.original-info h2{font-size:1.1rem;font-weight:600;text-transform:uppercase;line-height:1.5;margin:0 0 6px;color:var(--ink)}
 .original-info p{font-size:.9rem;margin:0;opacity:.8}
 .original-prev,.original-next{position:absolute;top:50%;z-index:2;color:white;font-size:24px;padding:16px;opacity:0;transition:opacity .3s}
 .original-next{right:0}
@@ -35,11 +35,6 @@ main{min-height:70vh}
 .original-dots button{height:20px;width:8px;padding:0;position:relative}
 .original-dots button:after{content:'';position:absolute;top:6px;left:0;width:8px;height:8px;background:#ffffff50;border-radius:50%}
 .original-dots button[aria-current=true]:after{background:#0f4c81;transform:scale(1.3)}
-
-/* Inicio: presentación */
-.home-intro{background:#fff;padding:70px 22px 80px}
-.home-intro h1{font-size:clamp(26px,3.2vw,44px);line-height:1.15;font-weight:500;letter-spacing:-.03em;margin:0 0 22px;max-width:900px}
-.home-intro p{font-size:17px;line-height:1.7;max-width:680px;margin:0}
 
 /* Listado de proyectos */
 .projects-page{padding:0;min-height:calc(100svh - 59px)}
@@ -161,8 +156,6 @@ nav{font-size:12px;gap:14px}
 .original-info{padding:2rem;padding-bottom:100px}
 .original-info h2{font-size:1rem}
 .original-prev,.original-next{opacity:1;padding:12px;font-size:20px}
-.home-intro{padding:40px 14px 50px}
-.home-intro p{font-size:16px}
 .filters{top:63px;gap:9px 18px;padding:12px 14px}
 .filters button{font-size:13px}
 .project-count{display:none}

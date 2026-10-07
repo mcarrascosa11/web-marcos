@@ -22,7 +22,7 @@ const NAV = [['/proyectos', 'Proyectos'], ['/sobre-mi', 'Estudio'], ['/contacto'
 export function layout(site, assets, page) {
   const {
     title, description, path, image, ogType = 'website', robots = 'index,follow',
-    bodyClass = '', current = '', main, schema = [], afterMain = '', svgDefs = ''
+    bodyClass = '', current = '', main, schema = [], afterMain = '', svgDefs = '', footer = true
   } = page;
   const url = site.url + path;
   return `<!doctype html>
@@ -54,8 +54,8 @@ ${schema.map(jsonLd).join('\n')}
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
 ${svgDefs}<header><div class="header-inner"><a class="brand" href="/"><strong>Marcos</strong> Carrascosa</a><nav aria-label="Navegación principal">${NAV.map(([href, label]) => `<a href="${href}"${href === current ? ' aria-current="page"' : ''}>${label}</a>`).join('')}</nav></div></header>
 <main id="main">${main}</main>
-<footer><span>Marcos Carrascosa · Arquitectura</span><a class="footer-email" href="mailto:${esc(site.email)}">${esc(site.email)}</a><div class="footer-links"><a href="/aviso-legal">Aviso legal</a><a href="/privacidad">Privacidad</a><a href="/cookies">Cookies</a><a href="${esc(site.instagram)}" target="_blank" rel="noopener">Instagram ↗</a></div></footer>
-${afterMain}<div class="cookie-banner" role="region" aria-label="Aviso de cookies" hidden><p>Esta web usa cookies de análisis de Google para saber cómo se utiliza, solo si las aceptas. <a href="/cookies">Más información</a></p><div class="cookie-actions"><button type="button" data-consent="rechazar">Rechazar</button><button type="button" data-consent="aceptar">Aceptar</button></div></div>
+${footer ? `<footer><span>Marcos Carrascosa · Arquitectura</span><a class="footer-email" href="mailto:${esc(site.email)}">${esc(site.email)}</a><div class="footer-links"><a href="/aviso-legal">Aviso legal</a><a href="/privacidad">Privacidad</a><a href="/cookies">Cookies</a><a href="${esc(site.instagram)}" target="_blank" rel="noopener">Instagram ↗</a></div></footer>
+` : ''}${afterMain}<div class="cookie-banner" role="region" aria-label="Aviso de cookies" hidden><p>Esta web usa cookies de análisis de Google para saber cómo se utiliza, solo si las aceptas. <a href="/cookies">Más información</a></p><div class="cookie-actions"><button type="button" data-consent="rechazar">Rechazar</button><button type="button" data-consent="aceptar">Aceptar</button></div></div>
 </body>
 </html>
 `;
@@ -65,9 +65,10 @@ ${afterMain}<div class="cookie-banner" role="region" aria-label="Aviso de cookie
 export const PLAN_FILTER = '<svg aria-hidden="true" width="0" height="0" style="position:absolute;pointer-events:none"><defs><filter id="plan-brand-blue" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.20009411764705884 0.6731294117647059 0.06795294117647059 0 0.058823529411764705 0.14923686274509804 0.5020423529411764 0.050681568627450976 0 0.2980392156862745 0.10504941176470589 0.3533929411764706 0.03567529411764706 0 0.5058823529411764 0 0 0 1 0"/></filter></defs></svg>';
 
 export function homeMain(site, slides) {
+  // The home page is only the carousel; the H1 is there for search engines and screen readers
+  const heading = `<h1 class="sr-only">${esc(site.inicio.titulo)}</h1>`;
   const stage = `<section class="home-stage" aria-label="Carrusel de proyectos seleccionados">${slides.map((p, i) => `<a class="original-slide${i === 0 ? ' active' : ''}" href="/proyectos/${p.slug}/"${i ? ' tabindex="-1" aria-hidden="true"' : ''} data-project-title="${esc(p.titulo)}">${coverImg(p.portada, p.portadaAlt, { mobile: p.portadaMovil, priority: i === 0 })}<div class="original-info"><h2>${esc(p.titulo)}</h2><p>${esc(p.ubicacion)}</p></div></a>`).join('')}<button class="original-prev" data-direction="-1" aria-label="Proyecto anterior">❮</button><button class="original-next" data-direction="1" aria-label="Proyecto siguiente">❯</button><div class="original-dots">${slides.map((_, i) => `<button data-slide="${i}" aria-label="Ir al proyecto ${i + 1}" aria-current="${i === 0}"></button>`).join('')}</div></section>`;
-  const intro = `<section class="home-intro"><h1>${esc(site.inicio.titulo)}</h1><p>${esc(site.inicio.texto)}</p><a class="back" href="/proyectos">Ver todos los proyectos</a></section>`;
-  return stage + intro;
+  return heading + stage;
 }
 
 const CARD_SIZES = '(max-width: 600px) 50vw, (max-width: 1000px) 34vw, 25vw';

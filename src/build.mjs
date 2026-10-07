@@ -174,7 +174,7 @@ const page = (file, data) => pages.push([file, T.layout(site, assets, data)]);
 
 page('index.html', {
   path: '/', title: site.seo.titulo, description: site.seo.descripcion, image: homeOg, bodyClass: 'immersive',
-  main: T.homeMain(site, slides),
+  main: T.homeMain(site, slides), footer: false,
   schema: [graph({ '@type': 'WebSite', '@id': `${site.url}/#web`, url: `${site.url}/`, name: site.marca, inLanguage: 'es', publisher: { '@id': STUDIO } }, studio, person)]
 });
 
