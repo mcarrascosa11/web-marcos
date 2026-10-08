@@ -7,7 +7,8 @@ import crypto from 'node:crypto';
 import sharp from 'sharp';
 
 const PIPELINE_VERSION = 1; // bump to regenerate every cached variant
-const PHOTO_WIDTHS = [480, 800, 1200, 1600, 2000, 2600];
+// Four widths keep every deployment light (Vercel stores a full copy of public/ per deployment)
+const PHOTO_WIDTHS = [640, 1280, 1920, 2560];
 const CACHE_DIR = path.join(process.cwd(), 'node_modules', '.cache', 'web-imagenes');
 
 export function createImages(publicDir) {

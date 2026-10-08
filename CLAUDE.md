@@ -3,6 +3,18 @@
 Portfolio de arquitectura. HTML estático generado con Node y publicado en Vercel (proyecto `web-marcos`).
 Cada push a `main` se publica en producción en 1-2 minutos; las demás ramas generan una preview.
 
+## Espacio en Vercel (importante)
+
+La cuenta es Hobby: 10 GB de Deployment Storage para todos los proyectos de Marcos juntos, y cada push
+guarda una copia completa de `public/` (~60 MB por las fotos). En octubre de 2026 se llenaron los 10 GB.
+
+- Agrupa los cambios y haz un solo push al terminar, no uno por commit.
+- Una sola rama de preview por cambio. Al fusionarla en `main`, borra la rama: mientras exista,
+  Vercel conserva su última preview y ocupa espacio.
+- No crees ramas de prueba, copia de seguridad o temporales en este repo. Si hace falta conservar algo,
+  usa una etiqueta (`git tag archivo/<nombre>`), que no genera despliegues.
+- No añadas más anchos a `PHOTO_WIDTHS` en `src/imagenes.mjs` sin contar lo que suma a cada despliegue.
+
 Marcos no toca código: manda fotos y textos y Claude publica. Todo el contenido está en `contenido/`;
 `src/` solo se toca para cambiar el diseño o el funcionamiento.
 
