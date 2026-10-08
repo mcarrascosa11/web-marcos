@@ -43,6 +43,8 @@
     { "source": "/iglesia-san-nicolas.html", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
     { "source": "/Iglesia San Nicolas.html", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
     { "source": "/Iglesia%20San%20Nicolas.html", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
+    { "source": "/iglesia san nicolas", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
+    { "source": "/iglesia%20san%20nicolas", "destination": "/proyectos/iglesia-san-nicolas/", "permanent": true },
     { "source": "/clinica-fisioterapia-corpore.html", "destination": "/proyectos/clinica-fisioterapia-corpore/", "permanent": true },
     { "source": "/ampliacion-cifp-rio-ebro.html", "destination": "/proyectos/ampliacion-cifp-rio-ebro/", "permanent": true },
     { "source": "/rehabilitacion-pabellon-arguedas.html", "destination": "/proyectos/rehabilitacion-pabellon-arguedas/", "permanent": true },
