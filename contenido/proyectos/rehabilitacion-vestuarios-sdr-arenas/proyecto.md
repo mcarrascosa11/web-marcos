@@ -7,7 +7,7 @@ fecha: 2026-09
 estado: Finalizada
 inicio: 1
 portada_alt: Rehabilitación de vestuarios de la S.D.R. Arenas en Tudela
-tarjeta: fotos/02.webp
+portada: fotos/02.jpg
 tarjeta_alt: Rehabilitación de vestuarios de la S.D.R. Arenas en Tudela
 seo_titulo: Rehabilitación de vestuarios S.D.R. Arenas en Tudela | Marcos Carrascosa
 seo_descripcion: Rehabilitación de los vestuarios de la S.D.R. Arenas en Tudela, Navarra. Proyecto finalizado de 619 m².

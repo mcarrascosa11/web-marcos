@@ -31,7 +31,7 @@ contenido/
     fotos/01.jpg, 02.jpg…   galería, en orden de nombre
     plano.webp              opcional: plano de la tarjeta (se tiñe de azul) y última imagen de la galería
     portada.*               opcional: si no, la portada es `portada:` del .md o la primera foto
-    portada-movil.*         opcional: versión vertical de la portada para móviles
+    portada-movil.*         opcional: versión vertical para móviles; si no hay, se recorta sola del centro de la portada
     tarjeta.*               opcional: foto de la tarjeta del listado si no es la portada
 src/
   build.mjs                 genera public/ (páginas, imágenes, sitemap, robots) y comprueba enlaces
@@ -52,7 +52,7 @@ Las redirecciones de URLs antiguas están en `vercel.json`.
    `npm run preparar-fotos -- "<carpeta con las fotos>" <slug> --portada <foto.jpg> [--plano plano.png] [--portada-movil vertical.jpg]`
    - El slug va en minúsculas, sin tildes, con guiones y con palabras útiles para Google: `vivienda-unifamiliar-tudela`.
    - Las fotos se numeran por orden de nombre de archivo. Si Marcos indica otro orden, renómbralas antes.
-   - Avisa a Marcos si el script dice que alguna foto es pequeña: la portada necesita 3000 px o más en el lado largo para verse nítida.
+   - Avisa a Marcos si el script dice que alguna foto es pequeña: la portada necesita 4000 px o más en el lado largo (se generan versiones hasta 3840 px para pantallas 4K y retina).
 3. Completa `contenido/proyectos/<slug>/proyecto.md` (el script crea la plantilla). Campos:
    - Obligatorios: `titulo`, `titulo_corto` (tarjeta del listado), `categoria`, `ubicacion`, `fecha` (`AAAA-MM`).
    - `categoria`: rehabilitación, espacio urbano, local comercial, educacional o vivienda. Una categoría nueva crea su filtro sola.

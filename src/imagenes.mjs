@@ -59,14 +59,20 @@ export function createImages(publicDir) {
   }
 
   // name: output path without extension, e.g. "proyectos/fp-tudela/01"
-  async function responsive(file, name, { quality = 80, widths = PHOTO_WIDTHS } = {}) {
-    const { buffer, width, height, hash } = await inspect(file);
-    const id = crypto.createHash('sha1').update(`${hash}:${quality}:${PIPELINE_VERSION}`).digest('hex').slice(0, 10);
+  // crop: width/height of a centred full-height crop, e.g. 0.7 for the phone version of a landscape cover
+  async function responsive(file, name, { quality = 80, widths = PHOTO_WIDTHS, crop } = {}) {
+    const source = await inspect(file);
+    const { buffer, hash } = source;
+    const box = crop && source.width / source.height > crop
+      ? { left: Math.round((source.width - source.height * crop) / 2), top: 0, width: Math.round(source.height * crop), height: source.height }
+      : null;
+    const { width, height } = box || source;
+    const id = crypto.createHash('sha1').update(`${hash}:${quality}:${PIPELINE_VERSION}${box ? `:crop${crop}` : ''}`).digest('hex').slice(0, 10);
     const sizes = widths.filter(w => w < width);
     if (!sizes.length || sizes.at(-1) < Math.min(width, widths.at(-1))) sizes.push(Math.min(width, widths.at(-1)));
     const variants = sizes.map(w => {
       const target = `img/${name}-${w}.${id}.webp`;
-      emit(buffer, `${id}-${w}.webp`, target, img => img.resize({ width: w }).webp({ quality, effort: 4 }));
+      emit(buffer, `${id}-${w}.webp`, target, img => (box ? img.extract(box) : img).resize({ width: w }).webp({ quality, effort: 4 }));
       return { w, url: `/${target}` };
     });
     const fallback = variants.find(v => v.w >= 1200) || variants.at(-1);

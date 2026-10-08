@@ -89,6 +89,8 @@
       slides.forEach((slide, k) => {
         const active = k === current;
         slide.classList.toggle('active', active);
+        // Only the visible slide and its neighbours are rendered, so each photo loads shortly before its turn
+        slide.classList.toggle('near', !active && (k === (current + 1) % slides.length || k === (current - 1 + slides.length) % slides.length));
         slide.tabIndex = active ? 0 : -1;
         if (active) slide.removeAttribute('aria-hidden');
         else slide.setAttribute('aria-hidden', 'true');

@@ -6,6 +6,7 @@ ubicacion: Tudela, Navarra
 fecha: 2022-06
 estado: Finalizada
 inicio: 4
+portada: fotos/05.jpg
 portada_alt: Remodelación urbana calles Misericordia y Trinquete, Tudela
 tarjeta_alt: Remodelación urbana de las calles Misericordia, Alberto Pelairea y Trinquete en Tudela
 seo_titulo: Remodelación urbana de calles en Tudela | Marcos Carrascosa

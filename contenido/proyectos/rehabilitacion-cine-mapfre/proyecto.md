@@ -6,6 +6,7 @@ ubicacion: Cabanillas, Navarra
 fecha: 2021-02
 estado: Finalizada
 inicio: 3
+portada: fotos/11.jpg
 portada_alt: Oficinas Mapfre en antiguo cine, Cabanillas
 tarjeta_alt: Rehabilitación de antiguo cine para oficinas Mapfre en Cabanillas
 seo_titulo: Rehabilitación de antiguo cine para oficinas en Cabanillas | Marcos Carrascosa

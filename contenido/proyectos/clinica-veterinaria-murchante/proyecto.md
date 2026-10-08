@@ -6,6 +6,7 @@ ubicacion: Murchante, Navarra
 fecha: 2024-04
 estado: Finalizada
 inicio: 5
+portada: fotos/07.jpg
 portada_alt: Diseño de clínica veterinaria en Murchante
 tarjeta_alt: Adecuación de local para clínica veterinaria en Murchante
 seo_titulo: Clínica veterinaria en Murchante | Marcos Carrascosa

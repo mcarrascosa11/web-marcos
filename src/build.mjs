@@ -112,14 +112,19 @@ const responsive = (file, name, opts) => {
   return memo.get(key);
 };
 const PLAN = { quality: 90, widths: [800, 1600, 2400] };
+// Full-screen covers: up to 3840 px for 4K and retina screens, and higher quality than the gallery
+// because flat walls and skies show WebP artefacts at full screen
+const COVER = { quality: 86, widths: [1280, 1920, 2560, 3200, 3840] };
+// Phones in portrait only ever see the centre of a landscape cover: a 7:10 crop shows exactly that, with fewer bytes
+const PHONE_COVER = { quality: 86, crop: 0.7, widths: [720, 1080, 1440, 1920] };
 const baseName = file => path.parse(file).name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
 await Promise.all(projects.map(async p => {
   const at = file => `proyectos/${p.slug}/${baseName(file)}`;
   const f = p.files;
   [p.portada, p.portadaMovil, p.tarjeta, p.plano, p.og] = await Promise.all([
-    responsive(f.portada, at(f.portada)),
-    f.portadaMovil && responsive(f.portadaMovil, at(f.portadaMovil)),
+    responsive(f.portada, at(f.portada), COVER),
+    f.portadaMovil ? responsive(f.portadaMovil, at(f.portadaMovil)) : responsive(f.portada, `${at(f.portada)}-movil`, PHONE_COVER),
     responsive(f.tarjeta, at(f.tarjeta)),
     f.plano && responsive(f.plano, at(f.plano), PLAN),
     images.openGraph(f.portada, p.slug)
