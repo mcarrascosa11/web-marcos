@@ -154,6 +154,12 @@
     dialog.querySelector('.lb-close').addEventListener('click', () => dialog.close());
     dialog.querySelector('.lb-prev').addEventListener('click', () => show(index - 1));
     dialog.querySelector('.lb-next').addEventListener('click', () => show(index + 1));
+    let swipeX = 0;
+    dialog.addEventListener('touchstart', e => { swipeX = e.changedTouches[0].screenX; }, { passive: true });
+    dialog.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].screenX - swipeX;
+      if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+    }, { passive: true });
     document.addEventListener('keydown', e => {
       if (dialog.open && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) show(index + (e.key === 'ArrowLeft' ? -1 : 1));
     });
@@ -166,8 +172,9 @@
     const href = link.getAttribute('href') || '';
     const slug = href.match(/^\/proyectos\/([^/]+)\/?$/)?.[1];
     if (slug) track('project_select', { project_slug: slug, project_name: link.dataset.projectTitle || link.textContent.trim() });
-    if (href === '/contacto' || href.startsWith('mailto:') || href.startsWith('tel:')) {
-      track('contact_click', { link_type: href.startsWith('mailto:') ? 'email' : href.startsWith('tel:') ? 'phone' : 'contact_page' });
+    const type = href.startsWith('mailto:') ? 'email' : href.startsWith('tel:') ? 'phone' : href.startsWith('https://wa.me/') ? 'whatsapp' : href === '/contacto' ? 'contact_page' : null;
+    if (type) {
+      track('contact_click', { link_type: type });
     }
   });
 })();

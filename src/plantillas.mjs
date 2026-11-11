@@ -106,7 +106,7 @@ export function aboutMain(about, portrait) {
 export function contactMain(site) {
   const d = site.direccion;
   const tel = site.telefono.replace(/\s/g, '');
-  return `<section class="contact"><h1>Contacto</h1><div class="contact-grid"><div><a class="email" href="mailto:${esc(site.email)}">${esc(site.email)} ↗</a><p style="margin-top:25px"><a href="tel:${esc(tel)}">${esc(site.telefono)}</a></p></div><div><p>${esc(d.calle)} · ${esc(d.piso)}<br>${esc(d.cp)} ${esc(d.ciudad)}</p><p><a href="${esc(site.instagram)}" target="_blank" rel="noopener">Instagram ↗</a></p></div></div></section>`;
+  return `<section class="contact"><h1>Contacto</h1><div class="contact-grid"><div><a class="email" href="mailto:${esc(site.email)}">${esc(site.email)} ↗</a><p style="margin-top:25px"><a href="tel:${esc(tel)}">${esc(site.telefono)}</a></p>${site.whatsapp ? `<p><a href="https://wa.me/${site.whatsapp.replace(/\D/g, '')}" target="_blank" rel="noopener">WhatsApp ↗</a></p>` : ''}</div><div><p>${esc(d.calle)} · ${esc(d.piso)}<br>${esc(d.cp)} ${esc(d.ciudad)}</p><p><a href="${esc(site.instagram)}" target="_blank" rel="noopener">Instagram ↗</a></p></div></div></section>`;
 }
 
 export function legalMain(doc) {
