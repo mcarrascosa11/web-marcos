@@ -74,3 +74,14 @@ Las redirecciones de URLs antiguas están en `vercel.json`.
 - Las imágenes procesadas se cachean en `node_modules/.cache/web-imagenes`; si cambias el procesado sube
   `PIPELINE_VERSION` en `src/imagenes.mjs`.
 - En Windows la carpeta del repo puede superar la longitud máxima de ruta: usa `git config core.longpaths true`.
+
+## Visitas
+
+Vercel Web Analytics (sin cookies, cuenta a todos los visitantes) está en todas las páginas desde el 11-11-2026.
+Para responder a "¿cómo va de visitas?" (en Git Bash, con `MSYS_NO_PATHCONV=1`):
+
+```bash
+vercel api "/v1/query/web-analytics/visits/count?projectId=web-marcos&from=2026-11-01T00:00:00Z&to=2026-12-01T00:00:00Z"
+```
+
+Google Analytics (GTM) solo cuenta a quien acepta cookies y necesita la cuenta de Google de Marcos.

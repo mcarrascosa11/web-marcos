@@ -1,10 +1,10 @@
 ---
 titulo: Política de cookies
 seo_descripcion: Qué cookies utiliza la web de Marcos Carrascosa y cómo cambiar tus preferencias.
-actualizado: 7 de octubre de 2026
+actualizado: 11 de noviembre de 2026
 ---
 
-Las cookies son pequeños archivos que un sitio web guarda en tu navegador. Esta web solo usa cookies de análisis si las aceptas expresamente en el aviso que aparece en tu primera visita.
+Las cookies son pequeños archivos que un sitio web guarda en tu navegador. Esta web solo usa cookies de análisis si las aceptas expresamente en el aviso que aparece en tu primera visita. Para contar las visitas usa además Vercel Web Analytics, que no utiliza cookies.
 
 ## Cookies que utiliza esta web
 

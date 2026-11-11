@@ -251,7 +251,7 @@ const broken = new Set();
 for (const [file, html] of pages) {
   const urls = [...html.matchAll(/(?:href|src)="(\/[^"#?]*)/g)].map(m => m[1])
     .concat([...html.matchAll(/srcset="([^"]+)"/g)].flatMap(m => m[1].split(',').map(s => s.trim().split(' ')[0])));
-  for (const url of urls) {
+  for (const url of urls.filter(u => !u.startsWith('/_vercel/'))) { // served by Vercel itself
     const target = url === '/' ? '/index.html' : rewrites[url] || (url.endsWith('/') ? `${url}index.html` : url);
     if (!fs.existsSync(path.join(PUBLIC, decodeURI(target)))) broken.add(`${file} → ${url}`);
   }

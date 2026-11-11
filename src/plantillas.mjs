@@ -49,6 +49,8 @@ ${image ? `<meta property="og:image" content="${site.url}${image.url}">
 <link rel="icon" href="/favicon.png">
 <link rel="stylesheet" href="${assets.css}">
 <script defer src="${assets.js}"></script>
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
 ${schema.map(jsonLd).join('\n')}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
